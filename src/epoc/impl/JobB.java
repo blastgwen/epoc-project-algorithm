@@ -9,6 +9,8 @@ public class JobB implements Job{
 	private int dateButoir;
 	private int indexExecution = 0;
 	
+	private boolean done = false;
+	
 	@Override
 	public List<Integer> getCharges() {
 		return this.charges;
@@ -24,7 +26,10 @@ public class JobB implements Job{
 	}
 	
 	public void incrementerExecution(){
-		this.indexExecution ++;
+		if (indexExecution < charges.size() - 1)
+			this.indexExecution ++;
+		else 
+			this.done = true;
 	}
 	
 	public int getIndexExecution(){
@@ -33,5 +38,13 @@ public class JobB implements Job{
 	
 	public int getNombreExecutionRestante(){
 		return this.charges.size() - indexExecution; 
+	}
+
+	public Integer getNextCharge() {
+		return charges.get(indexExecution);
+	}
+	
+	public boolean isDone(){
+		return this.done;
 	}
 }

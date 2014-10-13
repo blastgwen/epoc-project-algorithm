@@ -15,4 +15,8 @@ public class JobT implements Job{
 	public JobT(List<Integer> list){
 		this.charges = list;
 	}
+	
+	public Integer getChargeAt(int index) {
+		return charges.get(index);
+	}
 }
