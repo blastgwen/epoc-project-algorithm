@@ -1,16 +1,19 @@
 package epoc;
 
 import java.util.List;
+import utils.CSVUtils;
 
 import epoc.impl.JobB;
 import epoc.impl.JobT;
 
-public class EPOCAlgortihm {
+public class EPOCAlgorithm {
 	private int indexExecution = 0;
 	
 	private List<JobB> listJobB;
 	private List<JobT> listJobT;
 	private List<Integer> listGreenEnergy;
+	
+	private Integer EDF = 15;
 	
 	private int wastedEnergy = 0;
 	
@@ -19,14 +22,16 @@ public class EPOCAlgortihm {
 	 * Importe les différents fichiers
 	 */
 	private void initProgram(){
-		
+		listGreenEnergy = CSVUtils.readGreenEnergy();
+		listJobT = CSVUtils.readJobT();
+		listJobB = CSVUtils.readJobB();
 	}
 	
 	public static void main(String[] args) {
 
-		EPOCAlgortihm epoc = new EPOCAlgortihm();
+		EPOCAlgorithm epoc = new EPOCAlgorithm();
 		epoc.initProgram();
-
+		System.out.println("TMLP");
+		
 	}
-
 }

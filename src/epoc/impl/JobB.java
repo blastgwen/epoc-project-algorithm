@@ -6,7 +6,7 @@ import epoc.Job;
 
 public class JobB implements Job{
 	private List<Integer> charges;
-	private int maxJours;
+	private int dateButoir;
 	private int indexExecution = 0;
 	
 	@Override
@@ -14,13 +14,13 @@ public class JobB implements Job{
 		return this.charges;
 	}
 	
-	public int getMaxJours(){
-		return this.maxJours;
+	public int getDateButoire(){
+		return this.dateButoir;
 	}
 	
-	public JobB(List<Integer> list, int jours){
+	public JobB(int dateButoir, List<Integer> list){
 		this.charges = list;
-		this.maxJours = jours;
+		this.dateButoir = dateButoir;
 	}
 	
 	public void incrementerExecution(){
