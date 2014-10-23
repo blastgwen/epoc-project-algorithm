@@ -19,4 +19,4 @@ hs_err_pid*
 
 # Intellij Project
 .idea/*
-.epoc-project-algorithm.iml
+*.iml
