@@ -1,10 +1,13 @@
 package epoc;
 
 import java.util.List;
+
+import utils.AlgorithmUtils;
 import utils.CSVUtils;
 
 import epoc.impl.JobB;
 import epoc.impl.JobT;
+import utils.ListUtils;
 
 public class EPOCAlgorithm {
 	private int indexExecution = 0;
@@ -14,6 +17,7 @@ public class EPOCAlgorithm {
 	private List<Integer> listGreenEnergy;
 	
 	private Integer EDF = 15;
+    private Integer nbServer = 4;
 	
 	private int wastedEnergy = 0;
 	
@@ -24,12 +28,14 @@ public class EPOCAlgorithm {
 	private void initProgram(){
 		listGreenEnergy = CSVUtils.readGreenEnergy();
 		listJobT = CSVUtils.readJobT();
-		listJobB = CSVUtils.readJobB();
+		//listJobB = CSVUtils.readJobB();
 	}
-	
+
+
 	/**
 	 * Do one iteration
 	 */
+    /* SECOND VERSION
 	private void doOneIteration(){
 		int maxEnergie = listGreenEnergy.get(indexExecution);
 		int energieUsed = 0;
@@ -74,12 +80,22 @@ public class EPOCAlgorithm {
 			doOneIteration();
 		}
 	}
+	*/
+
+    private void execProgramme() {
+        List<List<JobT>> listServer = AlgorithmUtils.algorithmeForWebJob(listJobT, nbServer);
+        int i = 1 ;
+        for (List<JobT> server : listServer){
+            System.out.println(" RESULTAT - Server N°" + i);
+            System.out.println("\t" + ListUtils.ListToString(server));
+            System.out.println("Charge totale : " + ListUtils.getCharges(server));
+            i++;
+        }
+    }
 	public static void main(String[] args) {
 
 		EPOCAlgorithm epoc = new EPOCAlgorithm();
 		epoc.initProgram();
 		epoc.execProgramme();
-		
-		System.out.println("Energie totale perdue : " + epoc.wastedEnergy);
 	}
 }

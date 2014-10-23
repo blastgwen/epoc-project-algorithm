@@ -34,7 +34,51 @@ public class CSVUtils {
 
 		return greenEnergyData;
 	}
+    public static List<JobT> readJobT(){
+        List<JobT> jobTList = new ArrayList<JobT>();
+        try {
+            CSVParser parser = new CSVParser(new FileReader("ressources/JobT.csv"), CSVFormat.RFC4180);
+            for (CSVRecord csvRecord : parser) {
+                int jobData = Integer.parseInt(csvRecord.get(0));
+                JobT job = new JobT(jobData);
+                jobTList.add(job);
+            }
+        } catch (FileNotFoundException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        } catch (IOException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
 
+        return jobTList;
+    }
+
+    public static List<JobB> readJobB(){
+        List<JobB> jobBList = new ArrayList<JobB>();
+        try {
+            CSVParser parser = new CSVParser(new FileReader("ressources/JobB.csv"), CSVFormat.RFC4180);
+            for (CSVRecord csvRecord : parser) {
+                int lineSize = csvRecord.size();
+                if(lineSize > 2){
+                    int jobData = Integer.parseInt(csvRecord.get(0));
+                    JobB job = new JobB(jobData);
+                    jobBList.add(job);
+                }
+
+            }
+        } catch (FileNotFoundException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        } catch (IOException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+
+        return jobBList;
+    }
+
+    /* SECOND VERSION
 	public static List<JobT> readJobT(){
 		List<JobT> jobTList = new ArrayList<JobT>();
 		try {
@@ -86,5 +130,5 @@ public class CSVUtils {
 
 		return jobBList;
 	}
-
+    */
 }

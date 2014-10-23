@@ -16,3 +16,7 @@ hs_err_pid*
 .settings/*
 .project
 /bin
+
+# Intellij Project
+.idea/*
+.epoc-project-algorithm.iml
