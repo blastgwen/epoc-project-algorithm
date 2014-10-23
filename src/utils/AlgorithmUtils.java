@@ -1,6 +1,7 @@
 package utils;
 
 import epoc.impl.JobT;
+import epoc.impl.Server;
 
 import java.util.*;
 
@@ -9,45 +10,37 @@ import java.util.*;
  */
 public class AlgorithmUtils {
 
-    public static List<List<JobT>> algorithmeForWebJob(List<JobT> list, int nbServer){
+    public static List<Server> algorithmeForWebJob(List<Server> listServer, List<JobT> listJob){
 
-        List<List<JobT>> newList = new ArrayList<List<JobT>>();
-
-        // Create a List for each server
-
-        int index = nbServer;
-        while (index -- != 0){
-            newList.add(new ArrayList<JobT>());
-        }
-        System.out.println(" ----- FIRST LIST ------ \n" + ListUtils.ListToString(list) + '\n');
-        list = ListUtils.sortByDesc(list);
-        System.out.println(" ----- DESC LIST ------ \n" + ListUtils.ListToString(list) + '\n');
+        System.out.println(" ----- FIRST LIST ------ \n" + listJob + '\n');
+        listJob = ListUtils.sortByDesc(listJob);
+        System.out.println(" ----- DESC LIST ------ \n" + listJob + '\n');
 
         int n = 0;
-        for (JobT job : list){
+        for (JobT job : listJob){
             //  IF > 50 %
             if (job.getCharge() > 50){
-                if (n + 1 > nbServer){
+                if (n + 1 > listServer.size()){
                     System.out.println(" -- REMOVE JOB : " + job.getCharge());
                 } else {
-                    (newList.get(n)).add(job);
+                    listServer.get(n).addJob(job);
                     n ++;
                 }
             }
             // ELSE < 50 %
             else {
                 int u = 0;
-                while (u < nbServer &&
-                        job.getCharge() > 100 - ListUtils.getCharges(newList.get(u))){
+                while (u < listServer.size() &&
+                        job.getCharge() > 100 - listServer.get(u).getCharges()){
                     u ++;
                 }
-                if (u < nbServer){
-                    (newList.get(u)).add(job);
+                if (u < listServer.size()){
+                    listServer.get(u).addJob(job);
                 }
             }
         }
 
-        return newList;
+        return listServer;
     }
 
 }

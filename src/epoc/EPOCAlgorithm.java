@@ -2,6 +2,7 @@ package epoc;
 
 import java.util.List;
 
+import epoc.impl.Server;
 import utils.AlgorithmUtils;
 import utils.CSVUtils;
 
@@ -14,10 +15,10 @@ public class EPOCAlgorithm {
 	
 	private List<JobB> listJobB;
 	private List<JobT> listJobT;
+    private List<Server> listServer;
 	private List<Integer> listGreenEnergy;
 	
 	private Integer EDF = 15;
-    private Integer nbServer = 4;
 	
 	private int wastedEnergy = 0;
 	
@@ -28,6 +29,7 @@ public class EPOCAlgorithm {
 	private void initProgram(){
 		listGreenEnergy = CSVUtils.readGreenEnergy();
 		listJobT = CSVUtils.readJobT();
+        listServer = CSVUtils.readServer();
 		//listJobB = CSVUtils.readJobB();
 	}
 
@@ -83,13 +85,10 @@ public class EPOCAlgorithm {
 	*/
 
     private void execProgramme() {
-        List<List<JobT>> listServer = AlgorithmUtils.algorithmeForWebJob(listJobT, nbServer);
+        listServer = AlgorithmUtils.algorithmeForWebJob(listServer, listJobT);
         int i = 1 ;
-        for (List<JobT> server : listServer){
-            System.out.println(" RESULTAT - Server N°" + i);
-            System.out.println("\t" + ListUtils.ListToString(server));
-            System.out.println("Charge totale : " + ListUtils.getCharges(server));
-            i++;
+        for (Server server : listServer){
+            System.out.println(server);
         }
     }
 	public static void main(String[] args) {

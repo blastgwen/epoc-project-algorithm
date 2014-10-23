@@ -15,22 +15,6 @@ public class ListUtils {
         Collections.sort(list, new ComparatorJobDesc());
         return list;
     }
-
-    public static <A extends Job> int getCharges(List<A> list){
-        int res = 0;
-        for (Job job : list){
-            res += job.getCharge();
-        }
-        return res;
-    }
-
-    public static <A extends Job> String ListToString(List<A> list){
-        String res = "[";
-        for (A job : list){
-            res += job.getCharge() + ", ";
-        }
-        return res.substring(0, res.length() - 2) + "]";
-    }
 }
 
 class ComparatorJobDesc implements Comparator<Job> {
