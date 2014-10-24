@@ -30,7 +30,7 @@ public class EPOCAlgorithm {
 		listGreenEnergy = CSVUtils.readGreenEnergy();
 		listJobT = CSVUtils.readJobT();
         listServer = CSVUtils.readServer();
-		//listJobB = CSVUtils.readJobB();
+		listJobB = CSVUtils.readJobB();
 	}
 
 
@@ -85,11 +85,29 @@ public class EPOCAlgorithm {
 	*/
 
     private void execProgramme() {
-        listServer = AlgorithmUtils.algorithmeForWebJob(listServer, listJobT);
-        int i = 1 ;
+        System.out.println(" ----------- PREMIER ALGORITHME ------------- ");
+        listServer = AlgorithmUtils.algorithmForWebJob(listServer, listJobT);
         for (Server server : listServer){
             System.out.println(server);
         }
+        System.out.println("Consommation totale : " + getTotalEnergyUsed() +'\n');
+
+
+        System.out.println(" ----------- SECOND ALGORITHME ------------- ");
+        listServer = AlgorithmUtils.algorithmForBatchJob(listServer, listJobB);
+        for (Server server : listServer){
+            System.out.println(server);
+        }
+        System.out.println("Consommation totale : " + getTotalEnergyUsed() +'\n');
+    }
+
+    private int getTotalEnergyUsed(){
+        int totalEnergyUsed = 0;
+        for (Server server : listServer){
+            totalEnergyUsed += server.getConsommationTotal();
+        }
+
+        return totalEnergyUsed;
     }
 	public static void main(String[] args) {
 

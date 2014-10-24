@@ -10,13 +10,24 @@ public class JobB implements Job{
 	private int dateButoir;
 	private int indexExecution = 0;
     */
+    private int id;
 	
 	private boolean done = false;
 	
 	@Override
-	public int getCharge() {
-		return this.charge;
-	}
+     public int getCharge() {
+        return this.charge;
+    }
+
+    @Override
+    public int getId() {
+        return this.id;
+    }
+
+    @Override
+    public String toString(){
+        return "JobB:" +this.id + "[" + this.charge + "]";
+    }
 
     /*
 	public int getDateButoire(){
@@ -24,8 +35,9 @@ public class JobB implements Job{
 	}
 	*/
 	
-	public JobB(int charge){
+	public JobB(int id, int charge){
 		this.charge = charge;
+        this.id = id;
 	}
 
     /*

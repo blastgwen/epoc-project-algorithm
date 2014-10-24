@@ -12,6 +12,11 @@ public class JobT implements Job{
     public int getCharge() {
         return this.charge;
     }
+
+    @Override
+    public int getId() {
+        return this.id;
+    }
 	
 	public JobT(int id, int charge){
 		this.id = id;
@@ -20,7 +25,7 @@ public class JobT implements Job{
 
     @Override
     public String toString(){
-        return this.id + ":[" + this.charge + "]";
+        return "JobT:" +this.id + "[" + this.charge + "]";
     }
 	
 }

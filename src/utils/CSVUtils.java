@@ -61,9 +61,9 @@ public class CSVUtils {
             CSVParser parser = new CSVParser(new FileReader("ressources/JobB.csv"), CSVFormat.RFC4180);
             for (CSVRecord csvRecord : parser) {
                 int lineSize = csvRecord.size();
-                if(lineSize > 2){
-                    int jobData = Integer.parseInt(csvRecord.get(0));
-                    JobB job = new JobB(jobData);
+                if(lineSize > 1){
+                    JobB job = new JobB(Integer.parseInt(csvRecord.get(0)),
+                            Integer.parseInt(csvRecord.get(1)));
                     jobBList.add(job);
                 }
 
