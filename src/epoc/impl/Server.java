@@ -22,7 +22,7 @@ public class Server {
     public int getCharges(){
         int res = 0;
         for (Job job : jobs){
-            res += job.getCharge();
+            res += job.getNextCharge();
         }
         return res;
     }

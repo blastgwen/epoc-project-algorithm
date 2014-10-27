@@ -5,18 +5,25 @@ import java.util.List;
 import epoc.Job;
 
 public class JobB implements Job{
-	private int charge;
-	/* Not in first version
-	private int dateButoir;
-	private int indexExecution = 0;
-    */
+	private List<Integer> charges;
+	private int debut;
+	protected int indexExecution = 0;
+
     private int id;
 	
 	private boolean done = false;
-	
+
+    // GETTER /
+
+    public JobB(int id, int debut, List<Integer> charges){
+        this.charges = charges;
+        this.id = id;
+        this.debut = debut;
+    }
+
 	@Override
-     public int getCharge() {
-        return this.charge;
+     public List<Integer> getCharges() {
+        return this.charges;
     }
 
     @Override
@@ -25,44 +32,43 @@ public class JobB implements Job{
     }
 
     @Override
-    public String toString(){
-        return "JobB:" +this.id + "[" + this.charge + "]";
+    public int getDebut() {
+        return this.debut;
     }
-
-    /*
-	public int getDateButoire(){
-		return this.dateButoir;
-	}
-	*/
-	
-	public JobB(int id, int charge){
-		this.charge = charge;
-        this.id = id;
-	}
-
-    /*
-	public void incrementerExecution(){
-		if (indexExecution < charges.size() - 1)
-			this.indexExecution ++;
-		else 
-			this.done = true;
-	}
-
 	
 	public int getIndexExecution(){
 		return this.indexExecution;
 	}
-	
-	public int getNombreExecutionRestante(){
-		return this.charges.size() - indexExecution; 
-	}
 
-	public Integer getNextCharge() {
+    @Override
+    public int getChargeAt(int index) {
+        return this.charges.get(index);
+    }
+
+
+    // General Method
+
+    @Override
+	public int getNextCharge() {
 		return charges.get(indexExecution);
 	}
-	*/
-	
+
+    @Override
 	public boolean isDone(){
 		return this.done;
 	}
+
+    @Override
+    public void execute() {
+        if (indexExecution < charges.size() - 1)
+            this.indexExecution ++;
+        else
+            this.done = true;
+    }
+
+
+    @Override
+    public String toString(){
+        return "JobB:" +this.id + "[" + this.charges.get(indexExecution) + "]";
+    }
 }
