@@ -40,9 +40,17 @@ public class CSVUtils {
         try {
             CSVParser parser = new CSVParser(new FileReader("ressources/JobT.csv"), CSVFormat.RFC4180);
             for (CSVRecord csvRecord : parser) {
-                JobT job = new JobT(Integer.parseInt(csvRecord.get(0)),
-                        Integer.parseInt(csvRecord.get(1)));
-                jobTList.add(job);
+                int lineSize = csvRecord.size();
+                if(lineSize > 1){
+                    List<Integer> jobData = new ArrayList<Integer>();
+                    for(int i = 2; i < lineSize; i++){
+                        jobData.add(Integer.parseInt(csvRecord.get(i)));
+                    }
+                    JobT job = new JobT(Integer.parseInt(csvRecord.get(0)),
+                            Integer.parseInt(csvRecord.get(1)), jobData);
+
+                    jobTList.add(job);
+                }
             }
         } catch (FileNotFoundException e) {
             // TODO Auto-generated catch block
@@ -62,11 +70,15 @@ public class CSVUtils {
             for (CSVRecord csvRecord : parser) {
                 int lineSize = csvRecord.size();
                 if(lineSize > 1){
+                    List<Integer> jobData = new ArrayList<Integer>();
+                    for(int i = 2; i < lineSize; i++){
+                        jobData.add(Integer.parseInt(csvRecord.get(i)));
+                    }
                     JobB job = new JobB(Integer.parseInt(csvRecord.get(0)),
-                            Integer.parseInt(csvRecord.get(1)));
+                            Integer.parseInt(csvRecord.get(1)), jobData);
+
                     jobBList.add(job);
                 }
-
             }
         } catch (FileNotFoundException e) {
             // TODO Auto-generated catch block
@@ -99,57 +111,4 @@ public class CSVUtils {
 
         return serverList;
     }
-    /* SECOND VERSION
-	public static List<JobT> readJobT(){
-		List<JobT> jobTList = new ArrayList<JobT>();
-		try {
-			CSVParser parser = new CSVParser(new FileReader("ressources/JobT.csv"), CSVFormat.RFC4180);
-			for (CSVRecord csvRecord : parser) {
-				List<Integer> jobData = new ArrayList<Integer>();
-				int lineSize = csvRecord.size();
-				for(int i = 0; i < lineSize; i++){
-					jobData.add(Integer.parseInt(csvRecord.get(i)));
-				}
-				JobT job = new JobT(jobData);
-				jobTList.add(job);
-			}
-		} catch (FileNotFoundException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-
-		return jobTList;
-	}
-	
-	public static List<JobB> readJobB(){
-		List<JobB> jobBList = new ArrayList<JobB>();
-		try {
-			CSVParser parser = new CSVParser(new FileReader("ressources/JobB.csv"), CSVFormat.RFC4180);
-			for (CSVRecord csvRecord : parser) {
-				int lineSize = csvRecord.size();
-				if(lineSize > 2){
-					int dateButoir = Integer.parseInt(csvRecord.get(0));
-					List<Integer> jobData = new ArrayList<Integer>(lineSize-1);
-					for(int i = 1; i < lineSize; i++){
-						jobData.add(Integer.parseInt(csvRecord.get(i)));
-					}
-					JobB job = new JobB(dateButoir, jobData);
-					jobBList.add(job);
-				}
-				
-			}
-		} catch (FileNotFoundException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-
-		return jobBList;
-	}
-    */
 }

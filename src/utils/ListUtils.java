@@ -20,6 +20,6 @@ public class ListUtils {
 class ComparatorJobDesc implements Comparator<Job> {
     @Override
     public int compare(Job a, Job b) {
-        return (int)Integer.compare(b.getCharge(), a.getCharge());
+        return (int)Integer.compare(b.getNextCharge(), a.getNextCharge());
     }
 }

@@ -27,9 +27,9 @@ public class AlgorithmUtils {
         int n = 0;
         for (JobT job : listJob) {
             //  IF > 50 %
-            if (job.getCharge() > 50) {
-                if (n + 1 > listServer.size()) {
-                    System.out.println(" -- REMOVE JOB : " + job.getCharge());
+            if (job.getNextCharge() > 50) {
+                if (n + 1 > listServer.size() || job.getNextCharge() > 100) {
+                    System.out.println(" -- REMOVE JOB : " + job.getNextCharge());
                 } else {
                     listServer.get(n).addJob(job);
                     n++;
@@ -39,7 +39,7 @@ public class AlgorithmUtils {
             else {
                 int u = 0;
                 while (u < listServer.size() &&
-                        job.getCharge() > 100 - listServer.get(u).getCharges()) {
+                        job.getNextCharge() > 100 - listServer.get(u).getCharges()) {
                     u++;
                 }
                 if (u < listServer.size()) {
@@ -60,7 +60,7 @@ public class AlgorithmUtils {
         for (JobB job : listJob){
             int u = 0;
             while (u < listServer.size() &&
-                    job.getCharge() > 100 - listServer.get(u).getCharges()) {
+                    job.getNextCharge() > 100 - listServer.get(u).getCharges()) {
                 u ++;
             }
             if (u < listServer.size()) {
