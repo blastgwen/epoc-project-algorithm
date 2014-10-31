@@ -15,11 +15,23 @@ public class ListUtils {
         Collections.sort(list, new ComparatorJobDesc());
         return list;
     }
+
+    public static <A extends Job> List<A> sortByAsc(List<A> list){
+        Collections.sort(list, new ComparatorJobAsc());
+        return list;
+    }
 }
 
 class ComparatorJobDesc implements Comparator<Job> {
     @Override
     public int compare(Job a, Job b) {
         return (int)Integer.compare(b.getNextCharge(), a.getNextCharge());
+    }
+}
+
+class ComparatorJobAsc implements Comparator<Job> {
+    @Override
+    public int compare(Job a, Job b) {
+        return (int)Integer.compare(a.getNextCharge(), b.getNextCharge());
     }
 }

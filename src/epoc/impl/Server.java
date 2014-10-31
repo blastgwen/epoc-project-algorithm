@@ -10,9 +10,10 @@ import java.util.List;
  */
 public class Server {
 
-    public int consommation;
-    public int id;
-    public List<Job> jobs = new ArrayList<Job>();
+    protected int consommation;
+    protected int id;
+    private List<Job> jobs = new ArrayList<Job>();
+    private boolean on = false;
 
     public Server(int id, int cons){
         this.id = id;
@@ -27,6 +28,22 @@ public class Server {
         return res;
     }
 
+    public void setJobs(List<Job> jobs){
+        this.jobs = jobs;
+    }
+
+    public List<Job> getJobs(){
+        return this.jobs;
+    }
+
+    public List<JobT> getWebJobs(){
+        List<JobT> webJobs = new ArrayList<JobT>();
+        for (Job job : jobs){
+            if (job instanceof JobT)
+                webJobs.add((JobT)job);
+        }
+        return webJobs;
+    }
     public int getConsommation(){
         return this.consommation;
     }
@@ -46,5 +63,17 @@ public class Server {
             res += job.toString() + ", ";
         }
         return res.substring(0, res.length() - 2) + "] : " + this.getCharges();
+    }
+
+    public void clean(){
+        jobs = new ArrayList<Job>();
+    }
+
+    public void powerOn(){
+        this.on = true;
+    }
+
+    public void powerOff(){
+        this.on = false;
     }
 }

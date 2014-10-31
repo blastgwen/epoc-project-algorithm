@@ -15,8 +15,8 @@ public class AlgorithmUtils {
      * Premier algorithme
      *
      * @param listServer
-     * @param listJob
-     * @return listServer avec une liste de job
+     * @param listJob list of jobT
+     * @return a list of server full of Job
      */
     public static List<Server> algorithmForWebJob(List<Server> listServer, List<JobT> listJob) {
 
@@ -51,7 +51,12 @@ public class AlgorithmUtils {
         return listServer;
     }
 
-
+    /**
+     *
+     * @param listServer
+     * @param listJob list of jobB
+     * @return a list of server full of Job
+     */
     public static List<Server> algorithmForBatchJob(List<Server> listServer, List<JobB> listJob) {
         System.out.println(" ----- FIRST LIST ------ \n" + listJob + '\n');
         listJob = ListUtils.sortByDesc(listJob);
@@ -69,5 +74,38 @@ public class AlgorithmUtils {
         }
 
         return listServer;
+    }
+
+    /**
+     * Don't forget to increment the index of execution before doing this algorithm
+     * @param listServer
+     * @return
+     */
+    public static List<Server> algorithmMigration(List<Server> listServer, List<JobT> jobTs, List<JobB> jobBs, int index){
+
+        // New list of server
+        List<Server> newList = listServer;
+        newList.clear();
+
+        for (Server server : listServer){
+            if (server.getCharges() > 100) {
+                List<JobT> webJobs = server.getWebJobs();
+                webJobs = ListUtils.sortByAsc(webJobs);
+
+                List<JobT> migration = new ArrayList<JobT>();
+
+                while (server.getCharges() > 100) {
+                    migration.add(webJobs.get(0));
+                    server.getJobs().remove(webJobs.get(0));
+                    newList.remove(0);
+                }
+            } else if (server.getCharges() <= 0){
+                server.powerOff();
+            }
+        }
+
+        // Get new starting Job if there any
+
+        return newList;
     }
 }
