@@ -2,6 +2,7 @@ package utils;
 
 import epoc.Job;
 
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
@@ -14,6 +15,17 @@ public class ListUtils {
     public static <A extends Job> List<A> sortByDesc(List<A> list){
         Collections.sort(list, new ComparatorJobDesc());
         return list;
+    }
+
+    public static <A extends Job> List<A> selectByBeginning(List<A> list, int debut){
+        List<A> res = new ArrayList<A>();
+
+        for (A job : list){
+            if (job.getDebut() <= debut)
+                res.add(job);
+        }
+
+        return res;
     }
 }
 

@@ -39,6 +39,14 @@ public class Server {
         this.jobs.add(job);
     }
 
+    public void removeBatchJobs(){
+        for (int i = 0; i <= jobs.size(); i++){
+            if (jobs.get(i) instanceof JobB){
+                jobs.remove(i);
+                i --;
+            }
+        }
+    }
     @Override
     public String toString(){
         String res = "Server " +id + " [";

@@ -1,6 +1,6 @@
 package epoc;
 
-import java.util.List;
+import java.util.*;
 
 import epoc.impl.Server;
 import utils.AlgorithmUtils;
@@ -18,15 +18,13 @@ public class EPOCAlgorithm {
     private List<Server> listServer;
 	private List<Integer> listGreenEnergy;
 	
-	private Integer EDF = 15;
-	
-	private int wastedEnergy = 0;
+	private List<Integer> wastedEnergy = new ArrayList<Integer>();
 	
 	/**
 	 * Initialise le programme et les données
 	 * Importe les différents fichiers
 	 */
-	private void initProgram(){
+	public void initProgram(){
 		listGreenEnergy = CSVUtils.readGreenEnergy();
 		listJobT = CSVUtils.readJobT();
         listServer = CSVUtils.readServer();
@@ -34,71 +32,55 @@ public class EPOCAlgorithm {
 	}
 
 
-	/**
-	 * Do one iteration
-	 */
-    /* SECOND VERSION
-	private void doOneIteration(){
-		int maxEnergie = listGreenEnergy.get(indexExecution);
-		int energieUsed = 0;
-		
-		System.out.println("------- Iteration " + indexExecution + "-------");
-		System.out.println("Energie Verte : " + maxEnergie);
-		
-		System.out.println("Job T");
-		for (JobT job : listJobT) {
-			System.out.println("\t" + job.getChargeAt(indexExecution));
-			energieUsed += job.getChargeAt(indexExecution);
-		}
-		
-		System.out.println("Energie restante :" + (maxEnergie - energieUsed));
-		
-		System.out.println("Job B");
-		int i = 1;
-		for (JobB job : listJobB) {
-			if (!job.isDone()){
-				int charge = job.getNextCharge();
-				if (charge<= (maxEnergie - energieUsed)){
-					System.out.println("\tJob n°" + i + " : "+ charge + " ( itetation " + job.getIndexExecution() + " )");
-					energieUsed += charge;
-					job.incrementerExecution();
-				} else {
-					System.out.println("\tJob n°" + i + " : impossible à executer ( " + charge + " )");
-				}
-			} else {
-				System.out.println("\tJob n°" + i + " terminé ");	
-			}
-			i ++;
-		}
-		
-		indexExecution++;
-		System.out.println("Energie perdu à cette itération : " + (maxEnergie - energieUsed));
-		this.wastedEnergy += maxEnergie - energieUsed;
-	}
-	
-	private void execProgramme(){
-		
-		for (int i = 0; i < listGreenEnergy.size(); i ++){
-			doOneIteration();
-		}
-	}
-	*/
+    /**
+     * DO the third algortihm and take care of the execution
+     */
+    public void execProgramme() {
 
-    private void execProgramme() {
-        System.out.println(" ----------- PREMIER ALGORITHME ------------- ");
-        listServer = AlgorithmUtils.algorithmForWebJob(listServer, listJobT);
-        for (Server server : listServer){
-            System.out.println(server);
+        List<Server> oldServers = new ArrayList<Server>();
+        List<Server> newServers = new ArrayList<Server>();
+
+        while (!isFinished()){
+            oldServers = newServers;
+
+            // TODO: increment all the job done and remove batchJob
+            for (Server server : newServers){
+
+
+                server.removeBatchJobs();
+            }
+
+            // select the job you can run
+            List<JobB> jobBs = ListUtils.selectByBeginning(listJobB, indexExecution);
+            List<JobT> jobTs = ListUtils.selectByBeginning(listJobT, indexExecution);
+
+
+            newServers = doOneIteration(newServers, jobBs, jobTs);
+
+            indexExecution ++;
         }
-        System.out.println("Consommation totale : " + getTotalEnergyUsed() +'\n');
+    }
+
+    private List<Server> doOneIteration(List<Server> servers, List<JobB> batchs, List<JobT> webs){
 
 
-        System.out.println(" ----------- SECOND ALGORITHME ------------- ");
-        listServer = AlgorithmUtils.algorithmForBatchJob(listServer, listJobB);
-        for (Server server : listServer){
-            System.out.println(server);
+
+        return servers;
+    }
+
+    private boolean isFinished(){
+
+        for (JobB job : listJobB){
+            if (!job.isDone())
+                return false;
         }
-        System.out.println("Consommation totale : " + getTotalEnergyUsed() +'\n');
+
+        for (JobT job : listJobT){
+            if (!job.isDone())
+                return false;
+        }
+
+        return true;
     }
 
     private int getTotalEnergyUsed(){
@@ -109,10 +91,4 @@ public class EPOCAlgorithm {
 
         return totalEnergyUsed;
     }
-	public static void main(String[] args) {
-
-		EPOCAlgorithm epoc = new EPOCAlgorithm();
-		epoc.initProgram();
-		epoc.execProgramme();
-	}
 }
