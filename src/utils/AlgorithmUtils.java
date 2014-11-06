@@ -15,8 +15,8 @@ public class AlgorithmUtils {
      * Premier algorithme
      *
      * @param listServer
-     * @param listJob
-     * @return listServer avec une liste de job
+     * @param listJob list of jobT
+     * @return a list of server full of Job
      */
     public static List<Server> algorithmForWebJob(List<Server> listServer, List<JobT> listJob) {
 
@@ -51,7 +51,12 @@ public class AlgorithmUtils {
         return listServer;
     }
 
-
+    /**
+     *
+     * @param listServer
+     * @param listJob list of jobB
+     * @return a list of server full of Job
+     */
     public static List<Server> algorithmForBatchJob(List<Server> listServer, List<JobB> listJob) {
         System.out.println(" ----- FIRST LIST ------ \n" + listJob + '\n');
         listJob = ListUtils.sortByDesc(listJob);
