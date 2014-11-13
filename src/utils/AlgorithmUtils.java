@@ -20,9 +20,7 @@ public class AlgorithmUtils {
      */
     public static List<Server> algorithmForWebJob(List<Server> listServer, List<JobT> listJob) {
 
-        System.out.println(" ----- FIRST LIST ------ \n" + listJob + '\n');
         listJob = ListUtils.sortByDesc(listJob);
-        System.out.println(" ----- DESC LIST ------ \n" + listJob + '\n');
 
         int n = 0;
         for (JobT job : listJob) {
@@ -58,15 +56,30 @@ public class AlgorithmUtils {
      * @return a list of server full of Job
      */
     public static List<Server> algorithmForBatchJob(List<Server> listServer, List<JobB> listJob) {
-        System.out.println(" ----- FIRST LIST ------ \n" + listJob + '\n');
         listJob = ListUtils.sortByDesc(listJob);
-        System.out.println(" ----- DESC LIST ------ \n" + listJob + '\n');
 
         for (JobB job : listJob){
             int u = 0;
             while (u < listServer.size() &&
                     job.getNextCharge() > 100 - listServer.get(u).getCharges()) {
                 u ++;
+            }
+            if (u < listServer.size()) {
+                listServer.get(u).addJob(job);
+            }
+        }
+
+        return listServer;
+    }
+
+    public static List<Server> algorithmForWebJobMove(List<Server> listServer, List<JobT> listJob) {
+        listJob = ListUtils.sortByDesc(listJob);
+
+        for (JobT job : listJob) {
+            int u = 0;
+            while (u < listServer.size() &&
+                    job.getNextCharge() > 100 - listServer.get(u).getCharges()) {
+                u++;
             }
             if (u < listServer.size()) {
                 listServer.get(u).addJob(job);

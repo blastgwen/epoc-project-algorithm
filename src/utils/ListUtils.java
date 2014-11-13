@@ -21,7 +21,7 @@ public class ListUtils {
         List<A> res = new ArrayList<A>();
 
         for (A job : list) {
-            if (job.getDebut() <= debut)
+            if (job.getDebut() <= debut && !job.isDone())
                 res.add(job);
         }
 

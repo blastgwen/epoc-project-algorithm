@@ -37,4 +37,15 @@ public class UsedEnergy {
     public double getEnergyEDF() {
         return energyEDF;
     }
+
+    @Override
+    public String toString(){
+        String str =  indexExecution +" : Used(" + energyUsed +") - Green energy("+this.greenEnergy+")";
+        if (wastedGreenEnergy == 0)
+            str += " - Energy EDF("+this.energyEDF+") \n";
+        else
+            str += " - WastedEnergy("+this.wastedGreenEnergy+") \n";
+
+        return str;
+    }
 }

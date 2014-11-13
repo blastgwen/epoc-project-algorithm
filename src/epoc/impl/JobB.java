@@ -69,6 +69,6 @@ public class JobB implements Job{
 
     @Override
     public String toString(){
-        return "JobB:" +this.id + "[" + this.charges.get(indexExecution) + "]";
+        return "JobB:" +this.id + "["  + indexExecution + ":" + this.charges.get(indexExecution) + "]";
     }
 }

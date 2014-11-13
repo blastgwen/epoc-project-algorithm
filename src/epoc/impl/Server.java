@@ -57,8 +57,17 @@ public class Server {
     }
 
     public void removeBatchJobs(){
-        for (int i = 0; i <= jobs.size(); i++){
+       for (int i = 0; i < jobs.size(); i++){
             if (jobs.get(i) instanceof JobB){
+                jobs.remove(i);
+                i --;
+            }
+        }
+    }
+
+    public void removeJobDone(){
+        for (int i = 0; i < jobs.size(); i++){
+            if (jobs.get(i).isDone()){
                 jobs.remove(i);
                 i --;
             }
@@ -70,7 +79,7 @@ public class Server {
         for (Job job : jobs){
             res += job.toString() + ", ";
         }
-        return res.substring(0, res.length() - 2) + "] : " + this.getCharges();
+        return res.substring(0, res.length() - 2) + "] : " + this.getCharges() + '\n';
     }
 
     public void clean(){

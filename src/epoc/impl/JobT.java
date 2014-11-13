@@ -46,7 +46,7 @@ public class JobT implements Job{
 
     @Override
     public boolean isDone() {
-        return this.isDone();
+        return this.done;
     }
 
     public JobT(int id, int debut, List<Integer> charges){
@@ -58,7 +58,7 @@ public class JobT implements Job{
     // general methods
     @Override
     public String toString(){
-        return "JobT:" +this.id + "[" + this.charges.get(indexExecution) + "]";
+        return "JobT:" +this.id + "["  + indexExecution + ":" + this.charges.get(indexExecution) + "]";
     }
 
 
@@ -66,8 +66,10 @@ public class JobT implements Job{
     public void execute() {
         if (indexExecution < charges.size() - 1)
             this.indexExecution ++;
-        else
+        else {
             this.done = true;
+            System.out.println(" ----- JOB FINI :" + this);
+        }
     }
 	
 }
