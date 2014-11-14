@@ -25,7 +25,7 @@ public class AlgorithmUtils {
         int n = 0;
         for (JobT job : listJob) {
             //  IF > 50 %
-            if (job.getNextCharge() > 50) {
+            if (job.getNextCharge() > 50 && listServer.get(n).getCharges() < 50) {
                 if (n + 1 > listServer.size() || job.getNextCharge() > 100) {
                     System.out.println(" -- REMOVE JOB : " + job.getNextCharge());
                 } else {

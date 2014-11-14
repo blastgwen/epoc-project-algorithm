@@ -1,6 +1,7 @@
 package utils;
 
 import epoc.Job;
+import epoc.impl.Server;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -32,18 +33,30 @@ public class ListUtils {
         Collections.sort(list, new ComparatorJobAsc());
         return list;
     }
+
+    public static List<Server> sortByConsumption(List<Server> list){
+        Collections.sort(list, new ComparatorServerConsumption());
+        return list;
+    }
 }
 
 class ComparatorJobDesc implements Comparator<Job> {
     @Override
     public int compare(Job a, Job b) {
-        return (int)Integer.compare(b.getNextCharge(), a.getNextCharge());
+        return Integer.compare(b.getNextCharge(), a.getNextCharge());
     }
 }
 
 class ComparatorJobAsc implements Comparator<Job> {
     @Override
     public int compare(Job a, Job b) {
-        return (int)Integer.compare(a.getNextCharge(), b.getNextCharge());
+        return Integer.compare(a.getNextCharge(), b.getNextCharge());
+    }
+}
+
+class ComparatorServerConsumption implements Comparator<Server> {
+    @Override
+    public int compare(Server a, Server b) {
+        return Integer.compare(a.getConsommation(), b.getConsommation());
     }
 }

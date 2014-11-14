@@ -28,6 +28,7 @@ public class EPOCAlgorithm {
 		listGreenEnergy = CSVUtils.readGreenEnergy();
 		listJobT = CSVUtils.readJobT();
         listServer = CSVUtils.readServer();
+        listServer = ListUtils.sortByConsumption(listServer);
 		listJobB = CSVUtils.readJobB();
         listEnergy = new ArrayList<UsedEnergy>();
 	}
@@ -50,7 +51,6 @@ public class EPOCAlgorithm {
             System.out.println(" ------ ETAT des Server (sans batchJob)");
             System.out.println(newServers);
 
-            // TODO: move webjob in running in different server (algorithm 3)
             // Fing webjob to move
             List<JobT> aBouger = new ArrayList<JobT>();
             for (Server server : newServers){
@@ -67,6 +67,17 @@ public class EPOCAlgorithm {
             // move webjob into other server
             newServers = AlgorithmUtils.algorithmForWebJobMove(newServers, aBouger);
             System.out.println(" ------ ETAT des Server (après déplacement)");
+            System.out.println(newServers);
+
+            // move the wbjob to optimize in minimum server
+            // step in addition
+            List<JobT> webs = new ArrayList<JobT>();
+            for (Server server : newServers){
+                webs.addAll(server.getWebJobs());
+                server.clean();
+            }
+            newServers = AlgorithmUtils.algorithmForWebJob(newServers, webs);
+            System.out.println(" ------ ETAT des Server (après déplacement - en plus)");
             System.out.println(newServers);
 
             // select the job you can run
@@ -103,12 +114,12 @@ public class EPOCAlgorithm {
                 } else {
                     // increment
                     serv.powerOn();
+                    // calculate
+                    usedEnergy += serv.getConsommationTotal();
+
                     for (Job job : jobs){
                         job.execute();
                     }
-
-                    // calculate
-                    usedEnergy += serv.getConsommationTotal();
                 }
             }
 
