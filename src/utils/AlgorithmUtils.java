@@ -1,7 +1,9 @@
 package utils;
 
+import epoc.Job;
 import epoc.impl.JobB;
 import epoc.impl.JobT;
+import epoc.impl.result.ResultAlgorithm;
 import epoc.impl.Server;
 
 import java.util.*;
@@ -18,16 +20,17 @@ public class AlgorithmUtils {
      * @param listJob list of jobT
      * @return a list of server full of Job
      */
-    public static List<Server> algorithmForWebJob(List<Server> listServer, List<JobT> listJob) {
+    public static ResultAlgorithm algorithmForWebJob(ArrayList<Server> listServer, ArrayList<JobT> listJob) throws CloneNotSupportedException {
 
         listJob = ListUtils.sortByDesc(listJob);
+        ArrayList<Job> rejects = new ArrayList<Job>();
 
         int n = 0;
         for (JobT job : listJob) {
             //  IF > 50 %
             if (job.getNextCharge() > 50 && listServer.get(n).getCharges() < 50) {
                 if (n + 1 > listServer.size() || job.getNextCharge() > 100) {
-                    System.out.println(" -- REMOVE JOB : " + job.getNextCharge());
+                    rejects.add((Job)job.clone());
                 } else {
                     listServer.get(n).addJob(job);
                     n++;
@@ -42,11 +45,13 @@ public class AlgorithmUtils {
                 }
                 if (u < listServer.size()) {
                     listServer.get(u).addJob(job);
+                } else {
+                    rejects.add((Job)job.clone());
                 }
             }
         }
 
-        return listServer;
+        return new ResultAlgorithm(listServer, rejects);
     }
 
     /**
@@ -55,8 +60,10 @@ public class AlgorithmUtils {
      * @param listJob list of jobB
      * @return a list of server full of Job
      */
-    public static List<Server> algorithmForBatchJob(List<Server> listServer, List<JobB> listJob) {
+    public static ResultAlgorithm algorithmForBatchJob(ArrayList<Server> listServer, ArrayList<JobB> listJob) throws CloneNotSupportedException {
+
         listJob = ListUtils.sortByDesc(listJob);
+        ArrayList<Job> rejects = new ArrayList<Job>();
 
         for (JobB job : listJob){
             int u = 0;
@@ -66,14 +73,18 @@ public class AlgorithmUtils {
             }
             if (u < listServer.size()) {
                 listServer.get(u).addJob(job);
+            } else {
+                rejects.add((Job)job.clone());
             }
         }
 
-        return listServer;
+        return new ResultAlgorithm(listServer, rejects);
     }
 
-    public static List<Server> algorithmForWebJobMove(List<Server> listServer, List<JobT> listJob) {
+    public static ResultAlgorithm algorithmForWebJobMove(ArrayList<Server> listServer, ArrayList<JobT> listJob) throws CloneNotSupportedException {
+
         listJob = ListUtils.sortByDesc(listJob);
+        ArrayList<Job> rejects = new ArrayList<Job>();
 
         for (JobT job : listJob) {
             int u = 0;
@@ -83,9 +94,11 @@ public class AlgorithmUtils {
             }
             if (u < listServer.size()) {
                 listServer.get(u).addJob(job);
+            } else {
+                rejects.add((Job)job.clone());
             }
         }
 
-        return listServer;
+        return new ResultAlgorithm(listServer, rejects);
     }
 }

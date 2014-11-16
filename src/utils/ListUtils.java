@@ -13,13 +13,13 @@ import java.util.List;
  */
 public class ListUtils {
 
-    public static <A extends Job> List<A> sortByDesc(List<A> list){
+    public static <A extends Job> ArrayList<A> sortByDesc(ArrayList<A> list){
         Collections.sort(list, new ComparatorJobDesc());
         return list;
     }
 
-    public static <A extends Job> List<A> selectByBeginning(List<A> list, int debut) {
-        List<A> res = new ArrayList<A>();
+    public static <A extends Job> ArrayList<A> selectByBeginning(ArrayList<A> list, int debut) {
+        ArrayList<A> res = new ArrayList<A>();
 
         for (A job : list) {
             if (job.getDebut() <= debut && !job.isDone())
@@ -29,12 +29,12 @@ public class ListUtils {
         return res;
     }
 
-    public static <A extends Job> List<A> sortByAsc(List<A> list){
+    public static <A extends Job> ArrayList<A> sortByAsc(ArrayList<A> list){
         Collections.sort(list, new ComparatorJobAsc());
         return list;
     }
 
-    public static List<Server> sortByConsumption(List<Server> list){
+    public static ArrayList<Server> sortByConsumption(ArrayList<Server> list){
         Collections.sort(list, new ComparatorServerConsumption());
         return list;
     }

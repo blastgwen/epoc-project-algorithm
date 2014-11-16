@@ -8,11 +8,11 @@ import java.util.List;
 /**
  * Created by Gwenael on 23/10/2014.
  */
-public class Server {
+public class Server implements Cloneable{
 
-    protected int consommation;
-    protected int id;
-    private List<Job> jobs = new ArrayList<Job>();
+    private int consommation;
+    private int id;
+    private ArrayList<Job> jobs = new ArrayList<Job>();
     private boolean on = false;
 
     public Server(int id, int cons){
@@ -28,16 +28,16 @@ public class Server {
         return res;
     }
 
-    public void setJobs(List<Job> jobs){
+    public void setJobs(ArrayList<Job> jobs){
         this.jobs = jobs;
     }
 
-    public List<Job> getJobs(){
+    public ArrayList<Job> getJobs(){
         return this.jobs;
     }
 
-    public List<JobT> getWebJobs(){
-        List<JobT> webJobs = new ArrayList<JobT>();
+    public ArrayList<JobT> getWebJobs(){
+        ArrayList<JobT> webJobs = new ArrayList<JobT>();
         for (Job job : jobs){
             if (job instanceof JobT)
                 webJobs.add((JobT)job);
@@ -75,11 +75,15 @@ public class Server {
     }
     @Override
     public String toString(){
-        String res = "Server " +id + " [";
-        for (Job job : jobs){
-            res += job.toString() + ", ";
+        if (jobs.size() != 0) {
+            String res = "Server " + id + " [";
+            for (Job job : jobs) {
+                res += job.toString() + ", ";
+            }
+            return res.substring(0, res.length() - 2) + "] = " + this.getCharges() + '\n';
+        } else {
+            return "Server " + id + " [] = " + this.getCharges() +'\n';
         }
-        return res.substring(0, res.length() - 2) + "] : " + this.getCharges() + '\n';
     }
 
     public void clean(){
@@ -92,5 +96,16 @@ public class Server {
 
     public void powerOff(){
         this.on = false;
+    }
+
+    @Override
+    public Object clone() throws CloneNotSupportedException {
+        Server cloned =  (Server)super.clone();
+        ArrayList<Job> clonedJobs = new ArrayList<Job>();
+        for (Job job : this.getJobs()){
+            clonedJobs.add((Job) job.clone());
+        }
+        cloned.setJobs(clonedJobs);
+        return cloned;
     }
 }

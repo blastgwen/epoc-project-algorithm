@@ -2,23 +2,24 @@ package epoc;
 
 import java.util.*;
 
-import epoc.impl.Server;
-import epoc.impl.UsedEnergy;
+import epoc.impl.*;
+import epoc.impl.result.ResultAlgorithm;
+import epoc.impl.result.ResultEnergy;
+import epoc.impl.result.ResultIteration;
 import utils.AlgorithmUtils;
 import utils.CSVUtils;
 
-import epoc.impl.JobB;
-import epoc.impl.JobT;
 import utils.ListUtils;
 
 public class EPOCAlgorithm {
 	private int indexExecution = 0;
 	
-	private List<JobB> listJobB;
-	private List<JobT> listJobT;
-    private List<Server> listServer;
-	private List<Integer> listGreenEnergy;
-    private List<UsedEnergy> listEnergy;
+	private ArrayList<JobB> listJobB;
+	private ArrayList<JobT> listJobT;
+    private ArrayList<Server> listServer;
+	private ArrayList<Integer> listGreenEnergy;
+    private ArrayList<ResultIteration> listIteration;
+
 	
 	/**
 	 * Initialise le programme et les données
@@ -30,29 +31,26 @@ public class EPOCAlgorithm {
         listServer = CSVUtils.readServer();
         listServer = ListUtils.sortByConsumption(listServer);
 		listJobB = CSVUtils.readJobB();
-        listEnergy = new ArrayList<UsedEnergy>();
+        listIteration = new ArrayList<ResultIteration>();
 	}
 
 
     /**
      * DO the third algortihm and take care of the execution of the others
      */
-    public void execProgramme() {
+    public void execProgramme() throws CloneNotSupportedException {
 
-        List<Server> newServers = listServer;
+        ArrayList<Server> newServers = listServer;
 
         while (!isFinished()){
-            System.out.println(" ----------- ITERATION N°" + indexExecution);
             // remove batch job at each incrementation
             for (Server server : newServers){
                 server.removeBatchJobs();
                 server.removeJobDone();
             }
-            System.out.println(" ------ ETAT des Server (sans batchJob)");
-            System.out.println(newServers);
 
             // Fing webjob to move
-            List<JobT> aBouger = new ArrayList<JobT>();
+            ArrayList<JobT> aBouger = new ArrayList<JobT>();
             for (Server server : newServers){
                 if (server.getCharges() > 100){
                     List<JobT> webs = ListUtils.sortByAsc(server.getWebJobs());
@@ -65,24 +63,22 @@ public class EPOCAlgorithm {
                 }
             }
             // move webjob into other server
-            newServers = AlgorithmUtils.algorithmForWebJobMove(newServers, aBouger);
-            System.out.println(" ------ ETAT des Server (après déplacement)");
-            System.out.println(newServers);
+            ResultAlgorithm resultMove = AlgorithmUtils.algorithmForWebJobMove(newServers, aBouger);
+            newServers = resultMove.getServers();
 
             // move the wbjob to optimize in minimum server
             // step in addition
-            List<JobT> webs = new ArrayList<JobT>();
+            ArrayList<JobT> webs = new ArrayList<JobT>();
             for (Server server : newServers){
                 webs.addAll(server.getWebJobs());
                 server.clean();
             }
-            newServers = AlgorithmUtils.algorithmForWebJob(newServers, webs);
-            System.out.println(" ------ ETAT des Server (après déplacement - en plus)");
-            System.out.println(newServers);
+            ResultAlgorithm resultWeb = AlgorithmUtils.algorithmForWebJob(newServers, webs);
+            newServers = resultWeb.getServers();
 
             // select the job you can run
-            List<JobB> jobBs = ListUtils.selectByBeginning(listJobB, indexExecution);
-            List<JobT> jobTs = ListUtils.selectByBeginning(listJobT, indexExecution);
+            ArrayList<JobB> jobBs = ListUtils.selectByBeginning(listJobB, indexExecution);
+            ArrayList<JobT> jobTs = ListUtils.selectByBeginning(listJobT, indexExecution);
             // suppression des doublons et webjobs déjà lancé
             for (Server server : newServers){
                 for (JobT job : server.getWebJobs()){
@@ -94,18 +90,20 @@ public class EPOCAlgorithm {
                     }
                 }
             }
-            System.out.println(" ------ WebJob A placer");
-            System.out.println(jobTs);
-            System.out.println(" ------ BatchJob A placer");
-            System.out.println(jobBs);
+            ArrayList<Job> newJobs = new ArrayList<Job>();
+            for (JobT jobT : jobTs){
+                newJobs.add((JobT) jobT.clone());
+            }
+            for (JobB jobB : jobBs){
+                newJobs.add((JobB) jobB.clone());
+            }
 
-            newServers = doOneIteration(newServers, jobBs, jobTs);
-
-            System.out.println(" ----- Après algorithme");
-            System.out.println(newServers);
+            ResultAlgorithm finalResult = doOneIteration(newServers, jobBs, jobTs);
+            newServers = finalResult.getServers();
+            ResultAlgorithm cloned = (ResultAlgorithm) finalResult.clone();
 
             // increment the index for all jobs
-            System.out.println(" ----- Incrémentation ");
+            List<Job> finishedJobs = new ArrayList<Job>();
             double usedEnergy = 0;
             for (Server serv : newServers){
                 List<Job> jobs = serv.getJobs();
@@ -119,35 +117,40 @@ public class EPOCAlgorithm {
 
                     for (Job job : jobs){
                         job.execute();
+                        if (job.isDone()){
+                            finishedJobs.add(job);
+                        }
                     }
                 }
             }
 
             // calculate used energy
             double green = listGreenEnergy.get(indexExecution);
-            UsedEnergy ener;
+            ResultEnergy ener;
             if (green - usedEnergy <= 0){
                 // consumn EDF
-                ener = new UsedEnergy(indexExecution, usedEnergy, green, 0, usedEnergy - green);
+                ener = new ResultEnergy(usedEnergy, green, 0, usedEnergy - green);
             } else {
                 // wasted green energy
-                ener = new UsedEnergy(indexExecution, usedEnergy, green, green - usedEnergy, 0);
+                ener = new ResultEnergy(usedEnergy, green, green - usedEnergy, 0);
             }
 
-            listEnergy.add(ener);
+            listIteration.add(new ResultIteration(indexExecution, newJobs, cloned, finishedJobs, ener));
             indexExecution ++;
         }
 
         System.out.println(" TOUS LES JOBS SONT FINIS");
-        System.out.println(listEnergy);
     }
 
-    private List<Server> doOneIteration(List<Server> servers, List<JobB> batchs, List<JobT> webs){
-        servers = AlgorithmUtils.algorithmForWebJob(servers, webs);
+    private ResultAlgorithm doOneIteration(ArrayList<Server> servers, ArrayList<JobB> batchs, ArrayList<JobT> webs) throws CloneNotSupportedException {
+        ResultAlgorithm resultWeb = AlgorithmUtils.algorithmForWebJob(servers, webs);
+        servers = resultWeb.getServers();
 
-        servers = AlgorithmUtils.algorithmForBatchJob(servers, batchs);
+        ResultAlgorithm batchJob = AlgorithmUtils.algorithmForBatchJob(servers, batchs);
+        ArrayList<Job> rejects = resultWeb.getRejects();
+        rejects.addAll(batchJob.getRejects());
 
-        return servers;
+        return new ResultAlgorithm(batchJob.getServers(), rejects);
     }
 
     private boolean isFinished(){
@@ -165,12 +168,7 @@ public class EPOCAlgorithm {
         return true;
     }
 
-    private int getTotalEnergyUsed(){
-        int totalEnergyUsed = 0;
-        for (Server server : listServer){
-            totalEnergyUsed += server.getConsommationTotal();
-        }
-
-        return totalEnergyUsed;
+    public List<ResultIteration> getListIteration() {
+        return listIteration;
     }
 }

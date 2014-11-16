@@ -15,8 +15,8 @@ import epoc.impl.JobT;
 
 public class CSVUtils {
 
-	public static List<Integer> readGreenEnergy(){
-		List<Integer> greenEnergyData = new ArrayList<Integer>();
+	public static ArrayList<Integer> readGreenEnergy(){
+        ArrayList<Integer> greenEnergyData = new ArrayList<Integer>();
 		try {
 			CSVParser parser = new CSVParser(new FileReader("ressources/GreenEnergy.csv"), CSVFormat.RFC4180);
 			for (CSVRecord csvRecord : parser) {
@@ -35,8 +35,8 @@ public class CSVUtils {
 
 		return greenEnergyData;
 	}
-    public static List<JobT> readJobT(){
-        List<JobT> jobTList = new ArrayList<JobT>();
+    public static ArrayList<JobT> readJobT(){
+        ArrayList<JobT> jobTList = new ArrayList<JobT>();
         try {
             CSVParser parser = new CSVParser(new FileReader("ressources/JobT.csv"), CSVFormat.RFC4180);
             for (CSVRecord csvRecord : parser) {
@@ -63,8 +63,8 @@ public class CSVUtils {
         return jobTList;
     }
 
-    public static List<JobB> readJobB(){
-        List<JobB> jobBList = new ArrayList<JobB>();
+    public static ArrayList<JobB> readJobB(){
+        ArrayList<JobB> jobBList = new ArrayList<JobB>();
         try {
             CSVParser parser = new CSVParser(new FileReader("ressources/JobB.csv"), CSVFormat.RFC4180);
             for (CSVRecord csvRecord : parser) {
@@ -92,8 +92,8 @@ public class CSVUtils {
     }
 
 
-    public static List<Server> readServer(){
-        List<Server> serverList = new ArrayList<Server>();
+    public static ArrayList<Server> readServer(){
+        ArrayList<Server> serverList = new ArrayList<Server>();
         try {
             CSVParser parser = new CSVParser(new FileReader("ressources/Server.csv"), CSVFormat.RFC4180);
             for (CSVRecord csvRecord : parser) {

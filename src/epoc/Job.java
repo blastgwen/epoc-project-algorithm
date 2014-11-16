@@ -2,7 +2,7 @@ package epoc;
 
 import java.util.List;
 
-public interface Job {
+public interface Job extends Cloneable{
 
     // GETTER
 	List<Integer> getCharges();
@@ -15,4 +15,5 @@ public interface Job {
     int getNextCharge();
     int getIndexExecution();
     int getChargeAt(int index);
+    Object clone() throws CloneNotSupportedException;
 }

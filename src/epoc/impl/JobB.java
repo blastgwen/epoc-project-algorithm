@@ -4,10 +4,10 @@ import java.util.List;
 
 import epoc.Job;
 
-public class JobB implements Job{
+public class JobB implements Job, Cloneable{
 	private List<Integer> charges;
 	private int debut;
-	protected int indexExecution = 0;
+	private int indexExecution = 0;
 
     private int id;
 	
@@ -69,6 +69,14 @@ public class JobB implements Job{
 
     @Override
     public String toString(){
-        return "JobB:" +this.id + "["  + indexExecution + ":" + this.charges.get(indexExecution) + "]";
+        if (!this.done)
+            return "JobB:" +this.id + "["  + indexExecution + ":" + this.charges.get(indexExecution) + "]";
+        else
+            return "JobB:" +this.id +"(DONE)";
+    }
+
+    @Override
+    public Object clone() throws CloneNotSupportedException {
+        return super.clone();
     }
 }
