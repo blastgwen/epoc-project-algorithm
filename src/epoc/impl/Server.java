@@ -56,6 +56,10 @@ public class Server implements Cloneable{
         this.jobs.add(job);
     }
 
+    public int getId() {
+        return id;
+    }
+
     public void removeBatchJobs(){
        for (int i = 0; i < jobs.size(); i++){
             if (jobs.get(i) instanceof JobB){

@@ -31,4 +31,24 @@ public class ResultIteration {
                 "\n" + energy +
                 "----------------------------------------------------------------\n";
     }
+
+    public int getIndexExecution() {
+        return indexExecution;
+    }
+
+    public List<Job> getNewJobs() {
+        return newJobs;
+    }
+
+    public ResultAlgorithm getAlgorithm() {
+        return algorithm;
+    }
+
+    public List<Job> getFinishedJobs() {
+        return finishedJobs;
+    }
+
+    public ResultEnergy getEnergy() {
+        return energy;
+    }
 }

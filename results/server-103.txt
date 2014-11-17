@@ -1,0 +1,56 @@
+ ------- Iteration n°0
+Server 103 [JobT:206[0:23], JobT:209[0:23], JobT:208[0:10], JobB:306[0:10], JobB:302[0:8], JobB:303[0:8], JobB:307[0:8], JobB:300[0:7]] = 97
+
+
+ ------- Iteration n°1
+Server 103 [JobT:206[1:20], JobT:209[1:18], JobT:208[1:9], JobT:213[1:9], JobT:210[0:19], JobT:211[0:12], JobT:212[0:10], JobB:308[0:3]] = 100
+
+
+ ------- Iteration n°2
+Server 103 [JobT:210[1:18], JobT:211[1:11], JobT:212[1:10], JobT:208[2:8], JobT:213[2:8], JobT:214[0:7], JobB:306[1:10], JobB:302[1:9], JobB:303[1:9], JobB:307[1:9]] = 99
+
+
+ ------- Iteration n°3
+Server 103 [JobT:205[3:12], JobT:208[3:9], JobT:213[3:9], JobT:214[1:6], JobT:203[3:43], JobT:216[0:4], JobT:217[0:3], JobB:306[2:9], JobB:304[2:5]] = 100
+
+
+ ------- Iteration n°4
+Server 103 [JobT:209[4:18], JobT:211[3:14], JobT:206[4:12], JobT:212[3:8], JobT:208[4:8], JobT:213[4:8], JobT:214[2:5], JobT:216[1:4], JobT:218[0:2], JobB:302[2:8], JobB:303[2:8], JobB:305[0:4]] = 99
+
+
+ ------- Iteration n°5
+Server 103 [JobT:211[4:12], JobT:208[5:9], JobT:213[5:9], JobT:212[4:7], JobT:214[3:7], JobT:215[3:4], JobT:217[2:3], JobT:203[5:37], JobB:302[3:9], JobB:308[1:3]] = 100
+
+
+ ------- Iteration n°6
+Server 103 [] = 0
+
+
+ ------- Iteration n°7
+Server 103 [] = 0
+
+
+ ------- Iteration n°8
+Server 103 [] = 0
+
+
+ ------- Iteration n°9
+Server 103 [] = 0
+
+
+ ------- Iteration n°10
+Server 103 [] = 0
+
+
+ ------- Iteration n°11
+Server 103 [] = 0
+
+
+ ------- Iteration n°12
+Server 103 [] = 0
+
+
+ ------- Iteration n°13
+Server 103 [] = 0
+
+

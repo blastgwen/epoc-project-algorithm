@@ -100,6 +100,8 @@ public class EPOCAlgorithm {
 
             ResultAlgorithm finalResult = doOneIteration(newServers, jobBs, jobTs);
             newServers = finalResult.getServers();
+            // MAj de la liste de rejets
+            finalResult.getRejects().addAll(resultMove.getRejects());
             ResultAlgorithm cloned = (ResultAlgorithm) finalResult.clone();
 
             // increment the index for all jobs

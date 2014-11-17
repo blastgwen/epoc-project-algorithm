@@ -1,0 +1,42 @@
+ ------- Iteration n°0
+[JobB:301[0:7], JobB:305[0:4]]
+
+ ------- Iteration n°1
+[JobT:214[0:7], JobB:306[1:10], JobB:302[1:9], JobB:303[1:9], JobB:307[1:9], JobB:301[0:7], JobB:300[1:6], JobB:305[0:4], JobB:309[0:3], JobB:310[0:3]]
+
+ ------- Iteration n°2
+[JobB:301[0:7], JobB:300[1:6], JobB:304[2:5], JobB:305[0:4], JobB:308[1:3], JobB:309[0:3], JobB:310[0:3]]
+
+ ------- Iteration n°3
+[JobB:302[2:8], JobB:303[2:8], JobB:307[2:8], JobB:301[0:7], JobB:311[1:7], JobB:300[1:6], JobB:305[0:4], JobB:308[1:3], JobB:309[0:3], JobB:310[0:3], JobT:203[3:43]]
+
+ ------- Iteration n°4
+[JobB:306[3:8], JobB:307[2:8], JobB:301[0:7], JobB:311[1:7], JobB:300[1:6], JobB:304[3:6], JobB:308[1:3], JobB:309[0:3], JobB:310[0:3]]
+
+ ------- Iteration n°5
+[JobT:200[5:54], JobT:201[5:50], JobB:303[3:9], JobB:306[3:8], JobB:307[2:8], JobB:301[0:7], JobB:311[1:7], JobB:300[1:6], JobB:304[3:6], JobB:305[1:4], JobB:309[0:3], JobB:310[0:3], JobB:312[0:1], JobT:200[5:54], JobT:201[5:50], JobT:203[5:37]]
+
+ ------- Iteration n°6
+[]
+
+ ------- Iteration n°7
+[]
+
+ ------- Iteration n°8
+[]
+
+ ------- Iteration n°9
+[]
+
+ ------- Iteration n°10
+[]
+
+ ------- Iteration n°11
+[]
+
+ ------- Iteration n°12
+[]
+
+ ------- Iteration n°13
+[]
+

@@ -1,0 +1,56 @@
+ ------- Iteration n°0
+Server 100 [JobT:207[0:78], JobT:202[0:14], JobT:213[0:8]] = 100
+
+
+ ------- Iteration n°1
+Server 100 [JobT:207[1:76], JobT:202[1:23]] = 99
+
+
+ ------- Iteration n°2
+Server 100 [JobT:207[2:76], JobT:203[2:23], JobB:311[0:1]] = 100
+
+
+ ------- Iteration n°3
+Server 100 [JobT:207[3:64], JobT:204[3:32], JobT:215[1:2]] = 98
+
+
+ ------- Iteration n°4
+Server 100 [JobT:207[4:78], JobT:210[3:19], JobT:215[2:3]] = 100
+
+
+ ------- Iteration n°5
+Server 100 [JobT:207[5:80], JobT:210[4:18], JobT:218[1:2]] = 100
+
+
+ ------- Iteration n°6
+Server 100 [JobT:210[5:15], JobT:211[5:12], JobT:208[6:10], JobT:213[6:10], JobT:212[5:9], JobT:216[3:6], JobT:214[4:4], JobT:218[2:3], JobT:215[4:2], JobT:217[3:1], JobB:303[3:9], JobB:302[4:8], JobB:306[3:8], JobB:309[0:3]] = 100
+
+
+ ------- Iteration n°7
+Server 100 [JobT:212[6:8], JobT:214[5:5], JobT:216[4:4], JobT:215[5:4], JobT:217[4:4], JobT:218[3:1], JobB:302[5:9], JobB:307[3:9], JobB:303[4:8], JobB:306[4:7], JobB:312[1:7], JobB:301[1:6], JobB:311[2:6], JobB:300[2:5], JobB:305[2:5], JobB:304[4:4], JobB:310[1:4], JobB:308[3:3]] = 99
+
+
+ ------- Iteration n°8
+Server 100 [JobT:218[4:4], JobT:214[6:3], JobT:216[5:3], JobT:215[6:3], JobT:217[5:3], JobB:302[6:10], JobB:303[5:9], JobB:306[5:9], JobB:307[4:8], JobB:300[3:7], JobB:305[3:6], JobB:312[2:6], JobB:301[2:5], JobB:311[3:5], JobB:304[5:3], JobB:309[2:2], JobB:310[2:2], JobB:308[4:1]] = 89
+
+
+ ------- Iteration n°9
+Server 100 [JobT:217[6:7], JobT:216[6:4], JobB:303[6:10], JobB:307[5:9], JobB:306[6:8], JobB:301[3:7], JobB:311[4:7], JobB:312[3:5], JobB:300[4:4], JobB:304[6:4], JobB:305[4:4], JobB:308[5:4], JobB:309[3:3], JobB:310[3:3]] = 79
+
+
+ ------- Iteration n°10
+Server 100 [JobB:307[6:10], JobB:310[4:6], JobB:300[5:5], JobB:301[4:4], JobB:311[5:4], JobB:305[5:3], JobB:308[6:3], JobB:309[4:1]] = 36
+
+
+ ------- Iteration n°11
+Server 100 [JobB:308[7:7], JobB:301[5:5], JobB:311[6:5], JobB:305[6:4], JobB:309[5:4], JobB:310[5:4], JobB:300[6:3]] = 32
+
+
+ ------- Iteration n°12
+Server 100 [JobB:301[6:3], JobB:309[6:3], JobB:310[6:3]] = 9
+
+
+ ------- Iteration n°13
+Server 100 [JobB:310[7:4], JobB:309[7:3]] = 7
+
+

@@ -1,0 +1,56 @@
+ ------- Iteration n°0
+Server 102 [JobT:201[0:51], JobT:204[0:32], JobT:205[0:13], JobB:304[0:4]] = 100
+
+
+ ------- Iteration n°1
+Server 102 [JobT:201[1:50], JobT:204[1:23], JobT:205[1:23], JobB:304[1:4]] = 100
+
+
+ ------- Iteration n°2
+Server 102 [JobT:201[2:51], JobT:202[2:18], JobT:205[2:18], JobT:209[2:12]] = 99
+
+
+ ------- Iteration n°3
+Server 102 [JobT:201[3:50], JobT:210[2:15], JobT:211[2:13], JobT:202[3:12], JobT:212[2:9]] = 99
+
+
+ ------- Iteration n°4
+Server 102 [JobT:201[4:51], JobT:205[4:23], JobT:204[4:23], JobT:217[1:2]] = 99
+
+
+ ------- Iteration n°5
+Server 102 [JobT:205[5:65], JobT:204[5:23], JobT:209[5:12]] = 100
+
+
+ ------- Iteration n°6
+Server 102 [JobT:201[5:50]] = 50
+
+
+ ------- Iteration n°7
+Server 102 [] = 0
+
+
+ ------- Iteration n°8
+Server 102 [] = 0
+
+
+ ------- Iteration n°9
+Server 102 [] = 0
+
+
+ ------- Iteration n°10
+Server 102 [] = 0
+
+
+ ------- Iteration n°11
+Server 102 [] = 0
+
+
+ ------- Iteration n°12
+Server 102 [] = 0
+
+
+ ------- Iteration n°13
+Server 102 [] = 0
+
+

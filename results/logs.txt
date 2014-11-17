@@ -1,0 +1,168 @@
+--------------------- ResultIteration n°0 ---------------------
+----- Nouveaux Jobs :[JobT:200[0:52], JobT:201[0:51], JobT:202[0:14], JobT:203[0:48], JobT:204[0:32], JobT:205[0:13], JobT:206[0:23], JobT:207[0:78], JobT:208[0:10], JobT:209[0:23], JobT:213[0:8], JobB:300[0:7], JobB:301[0:7], JobB:302[0:8], JobB:303[0:8], JobB:304[0:4], JobB:305[0:4], JobB:306[0:10], JobB:307[0:8]]
+----- Liste des serveurs: 
+	Server 100 [JobT:207[0:78], JobT:202[0:14], JobT:213[0:8]] = 100
+	Server 101 [JobT:200[0:52], JobT:203[0:48]] = 100
+	Server 102 [JobT:201[0:51], JobT:204[0:32], JobT:205[0:13], JobB:304[0:4]] = 100
+	Server 103 [JobT:206[0:23], JobT:209[0:23], JobT:208[0:10], JobB:306[0:10], JobB:302[0:8], JobB:303[0:8], JobB:307[0:8], JobB:300[0:7]] = 97
+----- Liste des rejets: [JobB:301[0:7], JobB:305[0:4]]
+----- Jobs Terminés: []
+----- Energie utilisée : Used(397.0) - Green energy(450.0) - WastedEnergy(53.0) 
+----------------------------------------------------------------
+
+--------------------- ResultIteration n°1 ---------------------
+----- Nouveaux Jobs :[JobT:210[0:19], JobT:211[0:12], JobT:212[0:10], JobT:214[0:7], JobB:300[1:6], JobB:301[0:7], JobB:302[1:9], JobB:303[1:9], JobB:304[1:4], JobB:305[0:4], JobB:306[1:10], JobB:307[1:9], JobB:308[0:3], JobB:309[0:3], JobB:310[0:3]]
+----- Liste des serveurs: 
+	Server 100 [JobT:207[1:76], JobT:202[1:23]] = 99
+	Server 101 [JobT:200[1:53], JobT:203[1:45]] = 98
+	Server 102 [JobT:201[1:50], JobT:204[1:23], JobT:205[1:23], JobB:304[1:4]] = 100
+	Server 103 [JobT:206[1:20], JobT:209[1:18], JobT:208[1:9], JobT:213[1:9], JobT:210[0:19], JobT:211[0:12], JobT:212[0:10], JobB:308[0:3]] = 100
+----- Liste des rejets: [JobT:214[0:7], JobB:306[1:10], JobB:302[1:9], JobB:303[1:9], JobB:307[1:9], JobB:301[0:7], JobB:300[1:6], JobB:305[0:4], JobB:309[0:3], JobB:310[0:3]]
+----- Jobs Terminés: []
+----- Energie utilisée : Used(397.0) - Green energy(375.0) - Energy EDF(22.0) 
+----------------------------------------------------------------
+
+--------------------- ResultIteration n°2 ---------------------
+----- Nouveaux Jobs :[JobT:214[0:7], JobT:215[0:3], JobB:300[1:6], JobB:301[0:7], JobB:302[1:9], JobB:303[1:9], JobB:304[2:5], JobB:305[0:4], JobB:306[1:10], JobB:307[1:9], JobB:308[1:3], JobB:309[0:3], JobB:310[0:3], JobB:311[0:1]]
+----- Liste des serveurs: 
+	Server 100 [JobT:207[2:76], JobT:203[2:23], JobB:311[0:1]] = 100
+	Server 101 [JobT:200[2:55], JobT:204[2:23], JobT:206[2:19], JobT:215[0:3]] = 100
+	Server 102 [JobT:201[2:51], JobT:202[2:18], JobT:205[2:18], JobT:209[2:12]] = 99
+	Server 103 [JobT:210[1:18], JobT:211[1:11], JobT:212[1:10], JobT:208[2:8], JobT:213[2:8], JobT:214[0:7], JobB:306[1:10], JobB:302[1:9], JobB:303[1:9], JobB:307[1:9]] = 99
+----- Liste des rejets: [JobB:301[0:7], JobB:300[1:6], JobB:304[2:5], JobB:305[0:4], JobB:308[1:3], JobB:309[0:3], JobB:310[0:3]]
+----- Jobs Terminés: []
+----- Energie utilisée : Used(398.0) - Green energy(364.0) - Energy EDF(34.0) 
+----------------------------------------------------------------
+
+--------------------- ResultIteration n°3 ---------------------
+----- Nouveaux Jobs :[JobT:203[3:43], JobT:216[0:4], JobT:217[0:3], JobB:300[1:6], JobB:301[0:7], JobB:302[2:8], JobB:303[2:8], JobB:304[2:5], JobB:305[0:4], JobB:306[2:9], JobB:307[2:8], JobB:308[1:3], JobB:309[0:3], JobB:310[0:3], JobB:311[1:7]]
+----- Liste des serveurs: 
+	Server 100 [JobT:207[3:64], JobT:204[3:32], JobT:215[1:2]] = 98
+	Server 101 [JobT:200[3:56], JobT:209[3:23], JobT:206[3:21]] = 100
+	Server 102 [JobT:201[3:50], JobT:210[2:15], JobT:211[2:13], JobT:202[3:12], JobT:212[2:9]] = 99
+	Server 103 [JobT:205[3:12], JobT:208[3:9], JobT:213[3:9], JobT:214[1:6], JobT:203[3:43], JobT:216[0:4], JobT:217[0:3], JobB:306[2:9], JobB:304[2:5]] = 100
+----- Liste des rejets: [JobB:302[2:8], JobB:303[2:8], JobB:307[2:8], JobB:301[0:7], JobB:311[1:7], JobB:300[1:6], JobB:305[0:4], JobB:308[1:3], JobB:309[0:3], JobB:310[0:3], JobT:203[3:43]]
+----- Jobs Terminés: []
+----- Energie utilisée : Used(397.0) - Green energy(467.0) - WastedEnergy(70.0) 
+----------------------------------------------------------------
+
+--------------------- ResultIteration n°4 ---------------------
+----- Nouveaux Jobs :[JobT:218[0:2], JobB:300[1:6], JobB:301[0:7], JobB:302[2:8], JobB:303[2:8], JobB:304[3:6], JobB:305[0:4], JobB:306[3:8], JobB:307[2:8], JobB:308[1:3], JobB:309[0:3], JobB:310[0:3], JobB:311[1:7]]
+----- Liste des serveurs: 
+	Server 100 [JobT:207[4:78], JobT:210[3:19], JobT:215[2:3]] = 100
+	Server 101 [JobT:200[4:52], JobT:203[4:25], JobT:202[4:23]] = 100
+	Server 102 [JobT:201[4:51], JobT:205[4:23], JobT:204[4:23], JobT:217[1:2]] = 99
+	Server 103 [JobT:209[4:18], JobT:211[3:14], JobT:206[4:12], JobT:212[3:8], JobT:208[4:8], JobT:213[4:8], JobT:214[2:5], JobT:216[1:4], JobT:218[0:2], JobB:302[2:8], JobB:303[2:8], JobB:305[0:4]] = 99
+----- Liste des rejets: [JobB:306[3:8], JobB:307[2:8], JobB:301[0:7], JobB:311[1:7], JobB:300[1:6], JobB:304[3:6], JobB:308[1:3], JobB:309[0:3], JobB:310[0:3]]
+----- Jobs Terminés: []
+----- Energie utilisée : Used(398.0) - Green energy(413.0) - WastedEnergy(15.0) 
+----------------------------------------------------------------
+
+--------------------- ResultIteration n°5 ---------------------
+----- Nouveaux Jobs :[JobT:200[5:54], JobT:201[5:50], JobT:203[5:37], JobB:300[1:6], JobB:301[0:7], JobB:302[3:9], JobB:303[3:9], JobB:304[3:6], JobB:305[1:4], JobB:306[3:8], JobB:307[2:8], JobB:308[1:3], JobB:309[0:3], JobB:310[0:3], JobB:311[1:7], JobB:312[0:1]]
+----- Liste des serveurs: 
+	Server 100 [JobT:207[5:80], JobT:210[4:18], JobT:218[1:2]] = 100
+	Server 101 [JobT:202[5:65], JobT:206[5:30], JobT:216[2:5]] = 100
+	Server 102 [JobT:205[5:65], JobT:204[5:23], JobT:209[5:12]] = 100
+	Server 103 [JobT:211[4:12], JobT:208[5:9], JobT:213[5:9], JobT:212[4:7], JobT:214[3:7], JobT:215[3:4], JobT:217[2:3], JobT:203[5:37], JobB:302[3:9], JobB:308[1:3]] = 100
+----- Liste des rejets: [JobT:200[5:54], JobT:201[5:50], JobB:303[3:9], JobB:306[3:8], JobB:307[2:8], JobB:301[0:7], JobB:311[1:7], JobB:300[1:6], JobB:304[3:6], JobB:305[1:4], JobB:309[0:3], JobB:310[0:3], JobB:312[0:1], JobT:200[5:54], JobT:201[5:50], JobT:203[5:37]]
+----- Jobs Terminés: [JobT:207(DONE), JobT:202(DONE), JobT:206(DONE), JobT:205(DONE), JobT:204(DONE), JobT:209(DONE), JobT:203(DONE)]
+----- Energie utilisée : Used(400.0) - Green energy(367.0) - Energy EDF(33.0) 
+----------------------------------------------------------------
+
+--------------------- ResultIteration n°6 ---------------------
+----- Nouveaux Jobs :[JobT:200[5:54], JobT:201[5:50], JobB:300[1:6], JobB:301[0:7], JobB:302[4:8], JobB:303[3:9], JobB:304[3:6], JobB:305[1:4], JobB:306[3:8], JobB:307[2:8], JobB:308[2:2], JobB:309[0:3], JobB:310[0:3], JobB:311[1:7], JobB:312[0:1]]
+----- Liste des serveurs: 
+	Server 100 [JobT:210[5:15], JobT:211[5:12], JobT:208[6:10], JobT:213[6:10], JobT:212[5:9], JobT:216[3:6], JobT:214[4:4], JobT:218[2:3], JobT:215[4:2], JobT:217[3:1], JobB:303[3:9], JobB:302[4:8], JobB:306[3:8], JobB:309[0:3]] = 100
+	Server 101 [JobT:200[5:54], JobB:307[2:8], JobB:301[0:7], JobB:311[1:7], JobB:300[1:6], JobB:304[3:6], JobB:305[1:4], JobB:310[0:3], JobB:308[2:2], JobB:312[0:1]] = 98
+	Server 102 [JobT:201[5:50]] = 50
+	Server 103 [] = 0
+----- Liste des rejets: []
+----- Jobs Terminés: [JobT:210(DONE), JobT:211(DONE), JobT:208(DONE), JobT:213(DONE), JobT:200(DONE), JobT:201(DONE)]
+----- Energie utilisée : Used(248.0) - Green energy(375.0) - WastedEnergy(127.0) 
+----------------------------------------------------------------
+
+--------------------- ResultIteration n°7 ---------------------
+----- Nouveaux Jobs :[JobB:300[2:5], JobB:301[1:6], JobB:302[5:9], JobB:303[4:8], JobB:304[4:4], JobB:305[2:5], JobB:306[4:7], JobB:307[3:9], JobB:308[3:3], JobB:309[1:3], JobB:310[1:4], JobB:311[2:6], JobB:312[1:7]]
+----- Liste des serveurs: 
+	Server 100 [JobT:212[6:8], JobT:214[5:5], JobT:216[4:4], JobT:215[5:4], JobT:217[4:4], JobT:218[3:1], JobB:302[5:9], JobB:307[3:9], JobB:303[4:8], JobB:306[4:7], JobB:312[1:7], JobB:301[1:6], JobB:311[2:6], JobB:300[2:5], JobB:305[2:5], JobB:304[4:4], JobB:310[1:4], JobB:308[3:3]] = 99
+	Server 101 [JobB:309[1:3]] = 3
+	Server 102 [] = 0
+	Server 103 [] = 0
+----- Liste des rejets: []
+----- Jobs Terminés: [JobT:212(DONE)]
+----- Energie utilisée : Used(102.0) - Green energy(294.0) - WastedEnergy(192.0) 
+----------------------------------------------------------------
+
+--------------------- ResultIteration n°8 ---------------------
+----- Nouveaux Jobs :[JobB:300[3:7], JobB:301[2:5], JobB:302[6:10], JobB:303[5:9], JobB:304[5:3], JobB:305[3:6], JobB:306[5:9], JobB:307[4:8], JobB:308[4:1], JobB:309[2:2], JobB:310[2:2], JobB:311[3:5], JobB:312[2:6]]
+----- Liste des serveurs: 
+	Server 100 [JobT:218[4:4], JobT:214[6:3], JobT:216[5:3], JobT:215[6:3], JobT:217[5:3], JobB:302[6:10], JobB:303[5:9], JobB:306[5:9], JobB:307[4:8], JobB:300[3:7], JobB:305[3:6], JobB:312[2:6], JobB:301[2:5], JobB:311[3:5], JobB:304[5:3], JobB:309[2:2], JobB:310[2:2], JobB:308[4:1]] = 89
+	Server 101 [] = 0
+	Server 102 [] = 0
+	Server 103 [] = 0
+----- Liste des rejets: []
+----- Jobs Terminés: [JobT:218(DONE), JobT:214(DONE), JobT:215(DONE), JobB:302(DONE)]
+----- Energie utilisée : Used(89.0) - Green energy(463.0) - WastedEnergy(374.0) 
+----------------------------------------------------------------
+
+--------------------- ResultIteration n°9 ---------------------
+----- Nouveaux Jobs :[JobB:300[4:4], JobB:301[3:7], JobB:303[6:10], JobB:304[6:4], JobB:305[4:4], JobB:306[6:8], JobB:307[5:9], JobB:308[5:4], JobB:309[3:3], JobB:310[3:3], JobB:311[4:7], JobB:312[3:5]]
+----- Liste des serveurs: 
+	Server 100 [JobT:217[6:7], JobT:216[6:4], JobB:303[6:10], JobB:307[5:9], JobB:306[6:8], JobB:301[3:7], JobB:311[4:7], JobB:312[3:5], JobB:300[4:4], JobB:304[6:4], JobB:305[4:4], JobB:308[5:4], JobB:309[3:3], JobB:310[3:3]] = 79
+	Server 101 [] = 0
+	Server 102 [] = 0
+	Server 103 [] = 0
+----- Liste des rejets: []
+----- Jobs Terminés: [JobT:217(DONE), JobT:216(DONE), JobB:303(DONE), JobB:306(DONE), JobB:312(DONE), JobB:304(DONE)]
+----- Energie utilisée : Used(79.0) - Green energy(345.0) - WastedEnergy(266.0) 
+----------------------------------------------------------------
+
+--------------------- ResultIteration n°10 ---------------------
+----- Nouveaux Jobs :[JobB:300[5:5], JobB:301[4:4], JobB:305[5:3], JobB:307[6:10], JobB:308[6:3], JobB:309[4:1], JobB:310[4:6], JobB:311[5:4]]
+----- Liste des serveurs: 
+	Server 100 [JobB:307[6:10], JobB:310[4:6], JobB:300[5:5], JobB:301[4:4], JobB:311[5:4], JobB:305[5:3], JobB:308[6:3], JobB:309[4:1]] = 36
+	Server 101 [] = 0
+	Server 102 [] = 0
+	Server 103 [] = 0
+----- Liste des rejets: []
+----- Jobs Terminés: [JobB:307(DONE)]
+----- Energie utilisée : Used(36.0) - Green energy(354.0) - WastedEnergy(318.0) 
+----------------------------------------------------------------
+
+--------------------- ResultIteration n°11 ---------------------
+----- Nouveaux Jobs :[JobB:300[6:3], JobB:301[5:5], JobB:305[6:4], JobB:308[7:7], JobB:309[5:4], JobB:310[5:4], JobB:311[6:5]]
+----- Liste des serveurs: 
+	Server 100 [JobB:308[7:7], JobB:301[5:5], JobB:311[6:5], JobB:305[6:4], JobB:309[5:4], JobB:310[5:4], JobB:300[6:3]] = 32
+	Server 101 [] = 0
+	Server 102 [] = 0
+	Server 103 [] = 0
+----- Liste des rejets: []
+----- Jobs Terminés: [JobB:308(DONE), JobB:311(DONE), JobB:305(DONE), JobB:300(DONE)]
+----- Energie utilisée : Used(32.0) - Green energy(384.0) - WastedEnergy(352.0) 
+----------------------------------------------------------------
+
+--------------------- ResultIteration n°12 ---------------------
+----- Nouveaux Jobs :[JobB:301[6:3], JobB:309[6:3], JobB:310[6:3]]
+----- Liste des serveurs: 
+	Server 100 [JobB:301[6:3], JobB:309[6:3], JobB:310[6:3]] = 9
+	Server 101 [] = 0
+	Server 102 [] = 0
+	Server 103 [] = 0
+----- Liste des rejets: []
+----- Jobs Terminés: [JobB:301(DONE)]
+----- Energie utilisée : Used(9.0) - Green energy(234.0) - WastedEnergy(225.0) 
+----------------------------------------------------------------
+
+--------------------- ResultIteration n°13 ---------------------
+----- Nouveaux Jobs :[JobB:309[7:3], JobB:310[7:4]]
+----- Liste des serveurs: 
+	Server 100 [JobB:310[7:4], JobB:309[7:3]] = 7
+	Server 101 [] = 0
+	Server 102 [] = 0
+	Server 103 [] = 0
+----- Liste des rejets: []
+----- Jobs Terminés: [JobB:310(DONE), JobB:309(DONE)]
+----- Energie utilisée : Used(7.0) - Green energy(474.0) - WastedEnergy(467.0) 
+----------------------------------------------------------------
+
