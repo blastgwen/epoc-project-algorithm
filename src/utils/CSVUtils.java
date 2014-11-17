@@ -8,6 +8,7 @@ import java.util.List;
 import java.util.Map;
 
 import epoc.impl.Server;
+
 import org.apache.commons.csv.*;
 
 import epoc.impl.JobB;
@@ -15,7 +16,7 @@ import epoc.impl.JobT;
 
 public class CSVUtils {
 
-	public static ArrayList<Integer> readGreenEnergy(){
+	public static ArrayList<Integer> readGreenEnergy() throws Exception{
         ArrayList<Integer> greenEnergyData = new ArrayList<Integer>();
 		try {
 			CSVParser parser = new CSVParser(new FileReader("ressources/GreenEnergy.csv"), CSVFormat.RFC4180);
@@ -26,16 +27,16 @@ public class CSVUtils {
 				}
 			}
 		} catch (FileNotFoundException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+            Exception fnf = new Exception("Fichier GreenEnergy.csv introuvable dans le dossier ressources.");
+            fnf.setStackTrace(e.getStackTrace());
+            throw fnf;
+        } catch (IOException e) {
+            throw e;
+        }
 
 		return greenEnergyData;
 	}
-    public static ArrayList<JobT> readJobT(){
+    public static ArrayList<JobT> readJobT() throws Exception{
         ArrayList<JobT> jobTList = new ArrayList<JobT>();
         try {
             CSVParser parser = new CSVParser(new FileReader("ressources/JobT.csv"), CSVFormat.RFC4180);
@@ -53,17 +54,17 @@ public class CSVUtils {
                 }
             }
         } catch (FileNotFoundException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
+            Exception fnf = new Exception("Fichier JobT.csv introuvable dans le dossier ressources.");
+            fnf.setStackTrace(e.getStackTrace());
+            throw fnf;
         } catch (IOException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
+            throw e;
         }
 
         return jobTList;
     }
 
-    public static ArrayList<JobB> readJobB(){
+    public static ArrayList<JobB> readJobB() throws Exception{
         ArrayList<JobB> jobBList = new ArrayList<JobB>();
         try {
             CSVParser parser = new CSVParser(new FileReader("ressources/JobB.csv"), CSVFormat.RFC4180);
@@ -81,18 +82,18 @@ public class CSVUtils {
                 }
             }
         } catch (FileNotFoundException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
+            Exception fnf = new Exception("Fichier JobB.csv introuvable dans le dossier ressources.");
+            fnf.setStackTrace(e.getStackTrace());
+            throw fnf;
         } catch (IOException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
+            throw e;
         }
 
         return jobBList;
     }
 
 
-    public static ArrayList<Server> readServer(){
+    public static ArrayList<Server> readServer() throws Exception{
         ArrayList<Server> serverList = new ArrayList<Server>();
         try {
             CSVParser parser = new CSVParser(new FileReader("ressources/Server.csv"), CSVFormat.RFC4180);
@@ -102,11 +103,11 @@ public class CSVUtils {
                 serverList.add(server);
             }
         } catch (FileNotFoundException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
+            Exception fnf = new Exception("Fichier Server.csv introuvable dans le dossier ressources.");
+            fnf.setStackTrace(e.getStackTrace());
+            throw fnf;
         } catch (IOException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
+            throw e;
         }
 
         return serverList;

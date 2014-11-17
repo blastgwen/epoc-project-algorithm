@@ -10,12 +10,16 @@ import java.io.IOException;
  */
 public class mainClass {
     public static void main(String[] args) throws CloneNotSupportedException, IOException {
-        EPOCAlgorithm algo = new EPOCAlgorithm();
-        algo.initProgram();
-        algo.execProgramme();
-
-        LoggerUtils.logGeneral(algo.getListIteration());
-        LoggerUtils.logServers(algo.getListIteration());
-        LoggerUtils.logRejects(algo.getListIteration());
+    	try{
+	        EPOCAlgorithm algo = new EPOCAlgorithm();
+	        algo.initProgram();
+	        algo.execProgramme();
+	
+	        LoggerUtils.logGeneral(algo.getListIteration());
+	        LoggerUtils.logServers(algo.getListIteration());
+	        LoggerUtils.logRejects(algo.getListIteration());
+    	}catch(Exception e){
+    		e.printStackTrace();
+    	}
     }
 }

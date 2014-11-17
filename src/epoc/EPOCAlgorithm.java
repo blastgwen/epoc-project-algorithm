@@ -8,7 +8,6 @@ import epoc.impl.result.ResultEnergy;
 import epoc.impl.result.ResultIteration;
 import utils.AlgorithmUtils;
 import utils.CSVUtils;
-
 import utils.ListUtils;
 
 public class EPOCAlgorithm {
@@ -24,8 +23,9 @@ public class EPOCAlgorithm {
 	/**
 	 * Initialise le programme et les données
 	 * Importe les différents fichiers
+	 * @throws Exception 
 	 */
-	public void initProgram(){
+	public void initProgram() throws Exception{
 		listGreenEnergy = CSVUtils.readGreenEnergy();
 		listJobT = CSVUtils.readJobT();
         listServer = CSVUtils.readServer();
@@ -127,7 +127,12 @@ public class EPOCAlgorithm {
             }
 
             // calculate used energy
-            double green = listGreenEnergy.get(indexExecution);
+            double green;
+            try{
+            	green = listGreenEnergy.get(indexExecution);
+            }catch(IndexOutOfBoundsException exc){
+            	green = 0;
+            }
             ResultEnergy ener;
             if (green - usedEnergy <= 0){
                 // consumn EDF

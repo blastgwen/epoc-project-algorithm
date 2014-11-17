@@ -43,7 +43,7 @@
 	Server 103 [JobT:205[3:12], JobT:208[3:9], JobT:213[3:9], JobT:214[1:6], JobT:203[3:43], JobT:216[0:4], JobT:217[0:3], JobB:306[2:9], JobB:304[2:5]] = 100
 ----- Liste des rejets: [JobB:302[2:8], JobB:303[2:8], JobB:307[2:8], JobB:301[0:7], JobB:311[1:7], JobB:300[1:6], JobB:305[0:4], JobB:308[1:3], JobB:309[0:3], JobB:310[0:3], JobT:203[3:43]]
 ----- Jobs Terminés: []
------ Energie utilisée : Used(397.0) - Green energy(467.0) - WastedEnergy(70.0) 
+----- Energie utilisée : Used(397.0) - Green energy(0.0) - Energy EDF(397.0) 
 ----------------------------------------------------------------
 
 --------------------- ResultIteration n°4 ---------------------
@@ -55,7 +55,7 @@
 	Server 103 [JobT:209[4:18], JobT:211[3:14], JobT:206[4:12], JobT:212[3:8], JobT:208[4:8], JobT:213[4:8], JobT:214[2:5], JobT:216[1:4], JobT:218[0:2], JobB:302[2:8], JobB:303[2:8], JobB:305[0:4]] = 99
 ----- Liste des rejets: [JobB:306[3:8], JobB:307[2:8], JobB:301[0:7], JobB:311[1:7], JobB:300[1:6], JobB:304[3:6], JobB:308[1:3], JobB:309[0:3], JobB:310[0:3]]
 ----- Jobs Terminés: []
------ Energie utilisée : Used(398.0) - Green energy(413.0) - WastedEnergy(15.0) 
+----- Energie utilisée : Used(398.0) - Green energy(0.0) - Energy EDF(398.0) 
 ----------------------------------------------------------------
 
 --------------------- ResultIteration n°5 ---------------------
@@ -67,7 +67,7 @@
 	Server 103 [JobT:211[4:12], JobT:208[5:9], JobT:213[5:9], JobT:212[4:7], JobT:214[3:7], JobT:215[3:4], JobT:217[2:3], JobT:203[5:37], JobB:302[3:9], JobB:308[1:3]] = 100
 ----- Liste des rejets: [JobT:200[5:54], JobT:201[5:50], JobB:303[3:9], JobB:306[3:8], JobB:307[2:8], JobB:301[0:7], JobB:311[1:7], JobB:300[1:6], JobB:304[3:6], JobB:305[1:4], JobB:309[0:3], JobB:310[0:3], JobB:312[0:1], JobT:200[5:54], JobT:201[5:50], JobT:203[5:37]]
 ----- Jobs Terminés: [JobT:207(DONE), JobT:202(DONE), JobT:206(DONE), JobT:205(DONE), JobT:204(DONE), JobT:209(DONE), JobT:203(DONE)]
------ Energie utilisée : Used(400.0) - Green energy(367.0) - Energy EDF(33.0) 
+----- Energie utilisée : Used(400.0) - Green energy(0.0) - Energy EDF(400.0) 
 ----------------------------------------------------------------
 
 --------------------- ResultIteration n°6 ---------------------
@@ -79,7 +79,7 @@
 	Server 103 [] = 0
 ----- Liste des rejets: []
 ----- Jobs Terminés: [JobT:210(DONE), JobT:211(DONE), JobT:208(DONE), JobT:213(DONE), JobT:200(DONE), JobT:201(DONE)]
------ Energie utilisée : Used(248.0) - Green energy(375.0) - WastedEnergy(127.0) 
+----- Energie utilisée : Used(248.0) - Green energy(0.0) - Energy EDF(248.0) 
 ----------------------------------------------------------------
 
 --------------------- ResultIteration n°7 ---------------------
@@ -91,7 +91,7 @@
 	Server 103 [] = 0
 ----- Liste des rejets: []
 ----- Jobs Terminés: [JobT:212(DONE)]
------ Energie utilisée : Used(102.0) - Green energy(294.0) - WastedEnergy(192.0) 
+----- Energie utilisée : Used(102.0) - Green energy(0.0) - Energy EDF(102.0) 
 ----------------------------------------------------------------
 
 --------------------- ResultIteration n°8 ---------------------
@@ -103,7 +103,7 @@
 	Server 103 [] = 0
 ----- Liste des rejets: []
 ----- Jobs Terminés: [JobT:218(DONE), JobT:214(DONE), JobT:215(DONE), JobB:302(DONE)]
------ Energie utilisée : Used(89.0) - Green energy(463.0) - WastedEnergy(374.0) 
+----- Energie utilisée : Used(89.0) - Green energy(0.0) - Energy EDF(89.0) 
 ----------------------------------------------------------------
 
 --------------------- ResultIteration n°9 ---------------------
@@ -115,7 +115,7 @@
 	Server 103 [] = 0
 ----- Liste des rejets: []
 ----- Jobs Terminés: [JobT:217(DONE), JobT:216(DONE), JobB:303(DONE), JobB:306(DONE), JobB:312(DONE), JobB:304(DONE)]
------ Energie utilisée : Used(79.0) - Green energy(345.0) - WastedEnergy(266.0) 
+----- Energie utilisée : Used(79.0) - Green energy(0.0) - Energy EDF(79.0) 
 ----------------------------------------------------------------
 
 --------------------- ResultIteration n°10 ---------------------
@@ -127,7 +127,7 @@
 	Server 103 [] = 0
 ----- Liste des rejets: []
 ----- Jobs Terminés: [JobB:307(DONE)]
------ Energie utilisée : Used(36.0) - Green energy(354.0) - WastedEnergy(318.0) 
+----- Energie utilisée : Used(36.0) - Green energy(0.0) - Energy EDF(36.0) 
 ----------------------------------------------------------------
 
 --------------------- ResultIteration n°11 ---------------------
@@ -139,7 +139,7 @@
 	Server 103 [] = 0
 ----- Liste des rejets: []
 ----- Jobs Terminés: [JobB:308(DONE), JobB:311(DONE), JobB:305(DONE), JobB:300(DONE)]
------ Energie utilisée : Used(32.0) - Green energy(384.0) - WastedEnergy(352.0) 
+----- Energie utilisée : Used(32.0) - Green energy(0.0) - Energy EDF(32.0) 
 ----------------------------------------------------------------
 
 --------------------- ResultIteration n°12 ---------------------
@@ -151,7 +151,7 @@
 	Server 103 [] = 0
 ----- Liste des rejets: []
 ----- Jobs Terminés: [JobB:301(DONE)]
------ Energie utilisée : Used(9.0) - Green energy(234.0) - WastedEnergy(225.0) 
+----- Energie utilisée : Used(9.0) - Green energy(0.0) - Energy EDF(9.0) 
 ----------------------------------------------------------------
 
 --------------------- ResultIteration n°13 ---------------------
@@ -163,6 +163,9 @@
 	Server 103 [] = 0
 ----- Liste des rejets: []
 ----- Jobs Terminés: [JobB:310(DONE), JobB:309(DONE)]
------ Energie utilisée : Used(7.0) - Green energy(474.0) - WastedEnergy(467.0) 
+----- Energie utilisée : Used(7.0) - Green energy(0.0) - Energy EDF(7.0) 
 ----------------------------------------------------------------
 
+------------------------ BILAN ENERGETIQUE ------------------------
+Energie verte perdue : 53.0
+Max abonnement EDF : 400.0

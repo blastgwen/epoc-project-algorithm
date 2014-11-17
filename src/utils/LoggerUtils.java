@@ -20,6 +20,21 @@ public class LoggerUtils {
         for (int i =0; i < lists.size(); i++){
             writer.println(lists.get(i));
         }
+        
+        Double maxEDF = 0.0;
+        Double sumGreenEnergy = 0.0;
+        for(ResultIteration res : lists){
+        	sumGreenEnergy += res.getEnergy().getWastedGreenEnergy();
+        	if(res.getEnergy().getEnergyEDF() > maxEDF){
+        		maxEDF = res.getEnergy().getEnergyEDF();
+        	}
+        }
+        
+        writer.println("------------------------ BILAN ENERGETIQUE ------------------------");
+        writer.println("Energie verte perdue : " + sumGreenEnergy);
+        writer.println("Max abonnement EDF : " + maxEDF);
+        
+        
         writer.close();
     }
 
@@ -46,11 +61,11 @@ public class LoggerUtils {
     public static void logRejects(List<ResultIteration> lists) throws IOException {
         File folder = new File("results");
         folder.mkdir();
-        new File("results/rejetcs.txt").delete();
-        new File("results/rejetcs.txt").createNewFile();
+        new File("results/rejects.txt").delete();
+        new File("results/rejects.txt").createNewFile();
 
         for (ResultIteration res : lists) {
-            PrintWriter out = new PrintWriter(new BufferedWriter(new FileWriter("results/rejetcs.txt", true)));
+            PrintWriter out = new PrintWriter(new BufferedWriter(new FileWriter("results/rejects.txt", true)));
             out.println(" ------- Iteration n°" + res.getIndexExecution());
             out.println(res.getAlgorithm().getRejects());
             out.println();

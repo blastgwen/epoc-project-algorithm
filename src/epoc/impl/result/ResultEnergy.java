@@ -26,4 +26,22 @@ public class ResultEnergy {
 
         return str;
     }
+
+	public double getEnergyUsed() {
+		return energyUsed;
+	}
+
+	public double getGreenEnergy() {
+		return greenEnergy;
+	}
+
+	public double getWastedGreenEnergy() {
+		return wastedGreenEnergy;
+	}
+
+	public double getEnergyEDF() {
+		return energyEDF;
+	}
+    
+    
 }
